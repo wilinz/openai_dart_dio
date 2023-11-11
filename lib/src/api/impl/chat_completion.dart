@@ -13,11 +13,20 @@ class ChatCompletionApi extends Api {
   ChatCompletionApi({required Dio dio}) : super(dio);
 
   Future<ChatCompletion> createChatCompletion(
-      ChatCompletionRequest request) async {
+    ChatCompletionRequest request, {
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
     try {
       final response = await dio.post(
         '/v1/chat/completions',
         data: request.toJson(),
+        options: options,
+        cancelToken: cancelToken,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
       );
       return ChatCompletion.fromJson(response.data);
     } catch (e) {
@@ -27,16 +36,27 @@ class ChatCompletionApi extends Api {
   }
 
   Stream<ChatCompletionChunk> createChatCompletionStream(
-      final ChatCompletionRequest request) async* {
-
+    final ChatCompletionRequest request, {
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async* {
+    options ??= Options();
+    options.responseType = ResponseType.stream;
     ChatCompletionRequest newRequest = request;
-    if (request.stream != true){
+    if (request.stream != true) {
       newRequest = request.copyWith.stream(true);
     }
 
-    final response = await dio.post<ResponseBody>('/v1/chat/completions',
-        data: newRequest.toJson(),
-        options: Options(responseType: ResponseType.stream));
+    final response = await dio.post<ResponseBody>(
+      '/v1/chat/completions',
+      data: newRequest.toJson(),
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
     if (response.data == null) {
       throw Exception('Response data is null');
     }
