@@ -1,0 +1,7 @@
+{
+  "object": "fine_tuning.job.event",
+  "id": "ftevent-abc123",
+  "created_at": 1677610602,
+  "level": "info",
+  "message": "Created fine-tuning job"
+}

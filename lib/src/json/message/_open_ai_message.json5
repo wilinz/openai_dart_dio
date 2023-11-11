@@ -1,0 +1,20 @@
+{
+  "id": "msg_abc123",
+  "object": "thread.message",
+  "created_at": 1698983503,
+  "thread_id": "thread_abc123",
+  "role": "assistant",
+  "content": [
+    {
+      "type": "text",
+      "text": {
+        "value": "Hi! How can I help you today?",
+        "annotations": []
+      }
+    }
+  ],
+  "file_ids": [],
+  "assistant_id": "asst_abc123",
+  "run_id": "run_abc123",
+  "metadata": {}
+}

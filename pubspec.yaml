@@ -1,0 +1,22 @@
+name: openai_dart_dio
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.2.0-210.4.beta
+
+# Add regular dependencies here.
+dependencies:
+  # path: ^1.8.0
+  dio: ^5.3.3
+  fetch_client: ^1.0.2
+  native_dio_adapter: ^1.1.0
+  json_annotation: ^4.8.1
+
+dev_dependencies:
+  lints: ^2.1.0
+  test: ^1.24.0
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.6
+  json5_model: ^2.0.3
