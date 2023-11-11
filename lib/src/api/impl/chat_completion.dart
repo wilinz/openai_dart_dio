@@ -27,10 +27,15 @@ class ChatCompletionApi extends Api {
   }
 
   Stream<ChatCompletionChunk> createChatCompletionStream(
-      ChatCompletionRequest request) async* {
-    request.stream = true;
+      final ChatCompletionRequest request) async* {
+
+    ChatCompletionRequest newRequest = request;
+    if (request.stream != true){
+      newRequest = request.copyWith.stream(true);
+    }
+
     final response = await dio.post<ResponseBody>('/v1/chat/completions',
-        data: request.toJson(),
+        data: newRequest.toJson(),
         options: Options(responseType: ResponseType.stream));
     if (response.data == null) {
       throw Exception('Response data is null');
@@ -53,7 +58,9 @@ class ChatCompletionApi extends Api {
   final StreamTransformer<SseMessage, ChatCompletionChunk>
       _chatCompletionChunkTransformer = StreamTransformer.fromHandlers(
     handleData: (data, sink) {
-      sink.add(ChatCompletionChunk.fromJson(jsonDecode(data.data)));
+      if (data.data.trim() != "[DONE]") {
+        sink.add(ChatCompletionChunk.fromJson(jsonDecode(data.data)));
+      }
     },
   );
 }

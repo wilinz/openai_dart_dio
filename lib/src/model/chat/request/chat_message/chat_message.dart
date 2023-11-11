@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:autoequal/autoequal.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:openai_dart_dio/src/model/chat/function_call.dart';
 
@@ -22,8 +25,10 @@ class MessageContentType {
   static const String imageUrl = "image_url";
 }
 
+@CopyWith()
+@autoequal
 @JsonSerializable(explicitToJson: true)
-class ToolCalls {
+class ToolCalls with EquatableMixin {
   @JsonKey(name: 'id', includeIfNull: false)
   final String id;
 
@@ -41,23 +46,13 @@ class ToolCalls {
   Map<String, dynamic> toJson() => _$ToolCallsToJson(this);
 
   @override
-  String toString() => 'ToolCalls{id: $id, type: $type, function: $function}';
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ToolCalls &&
-          runtimeType == other.runtimeType &&
-          id == other.id &&
-          type == other.type &&
-          function == other.function;
-
-  @override
-  int get hashCode => id.hashCode ^ type.hashCode ^ function.hashCode;
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@autoequal
 @JsonSerializable(explicitToJson: true)
-class ChatMessage {
+class ChatMessage with EquatableMixin {
   @JsonKey(name: 'role', includeIfNull: false)
   final String role;
 
@@ -94,22 +89,13 @@ class ChatMessage {
   Map<String, dynamic> toJson() => _$ChatMessageToJson(this);
 
   @override
-  String toString() => 'ChatMessage{role: $role, content: $content}';
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ChatMessage &&
-          runtimeType == other.runtimeType &&
-          role == other.role &&
-          content == other.content;
-
-  @override
-  int get hashCode => role.hashCode ^ content.hashCode;
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@autoequal
 @JsonSerializable(explicitToJson: true)
-class MessageContent {
+class MessageContent with EquatableMixin {
   /// text or image_url use MessageContentType
   @JsonKey(name: 'type', includeIfNull: false)
   final String type;
@@ -126,24 +112,13 @@ class MessageContent {
   Map<String, dynamic> toJson() => _$MessageContentToJson(this);
 
   @override
-  String toString() =>
-      'MessageContent{type: $type, text: $text, imageUrl: $imageUrl}';
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is MessageContent &&
-          runtimeType == other.runtimeType &&
-          type == other.type &&
-          text == other.text &&
-          imageUrl == other.imageUrl;
-
-  @override
-  int get hashCode => type.hashCode ^ text.hashCode ^ imageUrl.hashCode;
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@autoequal
 @JsonSerializable(explicitToJson: true)
-class ImageInfo {
+class ImageInfo with EquatableMixin {
   @JsonKey(name: 'url', includeIfNull: false)
   String url;
 
@@ -169,15 +144,5 @@ class ImageInfo {
   Map<String, dynamic> toJson() => _$ImageInfoToJson(this);
 
   @override
-  String toString() => 'ImageInfo{url: $url}';
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ImageInfo &&
-          runtimeType == other.runtimeType &&
-          url == other.url;
-
-  @override
-  int get hashCode => url.hashCode;
+  List<Object?> get props => _$props;
 }
