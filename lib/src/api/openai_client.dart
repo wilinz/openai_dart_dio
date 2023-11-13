@@ -21,7 +21,7 @@ class OpenAiClient {
     }
   }
 
-  static ChatCompletionApi? _chatCompletionApi;
+  ChatCompletionApi? _chatCompletionApi;
 
   ChatCompletionApi get chatCompletionApi =>
       _chatCompletionApi ??= ChatCompletionApi(dio: _dio);
