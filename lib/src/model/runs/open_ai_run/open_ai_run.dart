@@ -66,7 +66,7 @@ class OpenAiRun {
   dynamic instructions;
 
   @JsonKey(name: "tools", defaultValue: [])
-  List<Tools> tools;
+  List<OpenAiRunTools> tools;
 
   @JsonKey(name: "file_ids", defaultValue: [])
   List<String> fileIds;
@@ -81,17 +81,17 @@ class OpenAiRun {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Tools {
-  Tools(
+class OpenAiRunTools {
+  OpenAiRunTools(
       {required this.type});
 
   @JsonKey(name: "type", defaultValue: "")
   String type;
 
 
-  factory Tools.fromJson(Map<String, dynamic> json) => _$ToolsFromJson(json);
+  factory OpenAiRunTools.fromJson(Map<String, dynamic> json) => _$OpenAiRunToolsFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ToolsToJson(this);
+  Map<String, dynamic> toJson() => _$OpenAiRunToolsToJson(this);
 }
 
 

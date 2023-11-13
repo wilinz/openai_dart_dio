@@ -14,7 +14,7 @@ class ChatCompletionChunk with EquatableMixin {
   final String id;
 
   @JsonKey(name: 'choices', includeIfNull: false, defaultValue: [])
-  final List<ChatCompletionChoice> choices;
+  final List<ChatCompletionChoiceChunk> choices;
 
   @JsonKey(name: 'created', includeIfNull: false, defaultValue: 0)
   final int created;
@@ -49,21 +49,21 @@ class ChatCompletionChunk with EquatableMixin {
 @CopyWith()
 @autoequal
 @JsonSerializable(explicitToJson: true)
-class ChatCompletionChoice with EquatableMixin  {
+class ChatCompletionChoiceChunk with EquatableMixin  {
   @JsonKey(name: 'delta', includeIfNull: false)
-  final ChatCompletionDelta delta;
+  final ChatCompletionDeltaChunk delta;
   @JsonKey(name: 'finish_reason', includeIfNull: false, defaultValue: null)
   final String? finishReason;
   @JsonKey(name: 'index', includeIfNull: false, defaultValue: 0)
   final int index;
 
-  ChatCompletionChoice(
+  ChatCompletionChoiceChunk(
       {required this.delta, this.finishReason, required this.index});
 
-  factory ChatCompletionChoice.fromJson(Map<String, dynamic> json) =>
-      _$ChatCompletionChoiceFromJson(json);
+  factory ChatCompletionChoiceChunk.fromJson(Map<String, dynamic> json) =>
+      _$ChatCompletionChoiceChunkFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ChatCompletionChoiceToJson(this);
+  Map<String, dynamic> toJson() => _$ChatCompletionChoiceChunkToJson(this);
 
   @override
   List<Object?> get props => _$props;
@@ -72,7 +72,7 @@ class ChatCompletionChoice with EquatableMixin  {
 @CopyWith()
 @autoequal
 @JsonSerializable(explicitToJson: true)
-class ToolCall with EquatableMixin  {
+class ToolCallChunk with EquatableMixin  {
   @JsonKey(name: 'index', includeIfNull: false, defaultValue: 0)
   final int index;
 
@@ -85,17 +85,17 @@ class ToolCall with EquatableMixin  {
   @JsonKey(name: 'function', includeIfNull: false)
   final FunctionCall function;
 
-  ToolCall({
+  ToolCallChunk({
     required this.index,
     required this.id,
     required this.type,
     required this.function,
   });
 
-  factory ToolCall.fromJson(Map<String, dynamic> json) =>
-      _$ToolCallFromJson(json);
+  factory ToolCallChunk.fromJson(Map<String, dynamic> json) =>
+      _$ToolCallChunkFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ToolCallToJson(this);
+  Map<String, dynamic> toJson() => _$ToolCallChunkToJson(this);
 
   @override
   List<Object?> get props => _$props;
@@ -104,23 +104,23 @@ class ToolCall with EquatableMixin  {
 @CopyWith()
 @autoequal
 @JsonSerializable(explicitToJson: true)
-class ChatCompletionDelta with EquatableMixin  {
+class ChatCompletionDeltaChunk with EquatableMixin  {
   @JsonKey(name: 'content', includeIfNull: false, defaultValue: null)
   final String? content;
 
   @JsonKey(name: 'tool_calls', includeIfNull: false, defaultValue: null)
-  final List<ToolCall>? toolCalls;
+  final List<ToolCallChunk>? toolCalls;
 
   @JsonKey(name: 'role', includeIfNull: false, defaultValue: "")
   final String role;
 
-  ChatCompletionDelta(
+  ChatCompletionDeltaChunk(
       {this.content, required this.toolCalls, required this.role});
 
-  factory ChatCompletionDelta.fromJson(Map<String, dynamic> json) =>
-      _$ChatCompletionDeltaFromJson(json);
+  factory ChatCompletionDeltaChunk.fromJson(Map<String, dynamic> json) =>
+      _$ChatCompletionDeltaChunkFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ChatCompletionDeltaToJson(this);
+  Map<String, dynamic> toJson() => _$ChatCompletionDeltaChunkToJson(this);
 
   @override
   List<Object?> get props => _$props;

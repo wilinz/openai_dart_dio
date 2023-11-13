@@ -26,3 +26,10 @@ dev_dependencies:
   json5_model: ^2.0.3
   copy_with_extension_gen: ^5.0.4
   autoequal_gen: ^0.5.1
+
+index_generator:
+  exclude:
+    - '**.g.dart'
+  # Define the paths of the folders in which to generate the index files
+  indexes:
+    - path: lib

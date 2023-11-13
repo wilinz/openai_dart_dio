@@ -1,4 +1,45 @@
-library;
+// GENERATED CODE - DO NOT MODIFY BY HAND
 
+library openai_dart_dio;
+
+export 'src/api/api_client.dart';
+export 'src/api/impl/audio.dart';
+export 'src/api/impl/chat_completion.dart';
 export 'src/api/openai_client.dart';
+export 'src/model/assistant/assistant_file/assistant_file.dart';
+export 'src/model/assistant/list_assistant/list_assistant.dart';
+export 'src/model/assistant/list_assistant_files/list_assistant_files.dart';
+export 'src/model/assistant/open_ai_assistant/open_ai_assistant.dart';
+export 'src/model/audio/speech_request.dart';
+export 'src/model/audio/transcriptions_request.dart';
+export 'src/model/chat/function_call.dart';
+export 'src/model/chat/request/chat_completion_request.dart';
+export 'src/model/chat/request/chat_message/chat_message.dart';
+export 'src/model/chat/response/chat_completion.dart';
+export 'src/model/chat/response/chat_completion_chunk.dart';
+export 'src/model/delete/open_ai_delete_response/open_ai_delete_response.dart';
+export 'src/model/embedding/embeddings_response/embeddings_response.dart';
+export 'src/model/embedding/open_ai_embedding/open_ai_embedding.dart';
+export 'src/model/file/list_file_response/list_file_response.dart';
+export 'src/model/file/open_ai_file/open_ai_file.dart';
+export 'src/model/fine_tuning/list_fine_tuning/list_fine_tuning.dart';
+export 'src/model/fine_tuning/list_fine_tuning_event/list_fine_tuning_event.dart';
+export 'src/model/fine_tuning/open_ai_fine_tuning/open_ai_fine_tuning.dart';
+export 'src/model/fine_tuning/open_ai_fine_tuning_job/open_ai_fine_tuning_job.dart';
+export 'src/model/image/image_edit_request.dart';
+export 'src/model/image/image_generation_request.dart';
+export 'src/model/image/image_variation_request.dart';
+export 'src/model/message/list_message/list_message.dart';
+export 'src/model/message/open_ai_message/open_ai_message.dart';
+export 'src/model/message/open_ai_message_file/open_ai_message_file.dart';
+export 'src/model/model/model_response/model_response.dart';
+export 'src/model/model/open_ai_model/open_ai_model.dart';
+export 'src/model/moderations/moderations_response/moderations_response.dart';
+export 'src/model/runs/list_run/list_run.dart';
+export 'src/model/runs/list_run_step/list_run_step.dart';
+export 'src/model/runs/open_ai_run/open_ai_run.dart';
+export 'src/model/runs/run_step/run_step.dart';
+export 'src/model/runs/submit_tool_outputs/submit_tool_outputs.dart';
+export 'src/model/thread/open_ai_thread/open_ai_thread.dart';
 export 'src/util/conversion_layer_adapter.dart';
+export 'src/util/sse_transformer.dart';

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:openai_dart_dio/src/model/chat/response/chat_completion.dart';
 
 part 'embeddings_response.g.dart';
 
@@ -14,7 +15,7 @@ class EmbeddingsResponse {
   String object;
 
   @JsonKey(name: "data", defaultValue: [])
-  List<Data> data;
+  List<Embedding> data;
 
   @JsonKey(name: "model", defaultValue: "")
   String model;
@@ -29,8 +30,8 @@ class EmbeddingsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Data {
-  Data(
+class Embedding {
+  Embedding(
       {required this.object,
       required this.embedding,
       required this.index});
@@ -45,27 +46,10 @@ class Data {
   int index;
 
 
-  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+  factory Embedding.fromJson(Map<String, dynamic> json) => _$EmbeddingFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$EmbeddingToJson(this);
 }
 
-@JsonSerializable(explicitToJson: true)
-class Usage {
-  Usage(
-      {required this.promptTokens,
-      required this.totalTokens});
-
-  @JsonKey(name: "prompt_tokens", defaultValue: 0)
-  int promptTokens;
-
-  @JsonKey(name: "total_tokens", defaultValue: 0)
-  int totalTokens;
-
-
-  factory Usage.fromJson(Map<String, dynamic> json) => _$UsageFromJson(json);
-
-  Map<String, dynamic> toJson() => _$UsageToJson(this);
-}
 
 

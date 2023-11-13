@@ -32,7 +32,7 @@ class OpenAiMessage {
   String role;
 
   @JsonKey(name: "content", defaultValue: [])
-  List<Content> content;
+  List<OpenAiMessageContent> content;
 
   @JsonKey(name: "file_ids")
   List fileIds;
@@ -53,8 +53,8 @@ class OpenAiMessage {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Text {
-  Text(
+class OpenAiMessageText {
+  OpenAiMessageText(
       {required this.value,
       required this.annotations});
 
@@ -65,14 +65,14 @@ class Text {
   List annotations;
 
 
-  factory Text.fromJson(Map<String, dynamic> json) => _$TextFromJson(json);
+  factory OpenAiMessageText.fromJson(Map<String, dynamic> json) => _$OpenAiMessageTextFromJson(json);
 
-  Map<String, dynamic> toJson() => _$TextToJson(this);
+  Map<String, dynamic> toJson() => _$OpenAiMessageTextToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class Content {
-  Content(
+class OpenAiMessageContent {
+  OpenAiMessageContent(
       {required this.type,
       required this.text});
 
@@ -80,12 +80,12 @@ class Content {
   String type;
 
   @JsonKey(name: "text")
-  Text text;
+  OpenAiMessageText text;
 
 
-  factory Content.fromJson(Map<String, dynamic> json) => _$ContentFromJson(json);
+  factory OpenAiMessageContent.fromJson(Map<String, dynamic> json) => _$OpenAiMessageContentFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ContentToJson(this);
+  Map<String, dynamic> toJson() => _$OpenAiMessageContentToJson(this);
 }
 
 
