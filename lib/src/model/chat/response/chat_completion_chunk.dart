@@ -108,8 +108,8 @@ class ChatCompletionDelta with EquatableMixin  {
   @JsonKey(name: 'content', includeIfNull: false, defaultValue: null)
   final String? content;
 
-  @JsonKey(name: 'tool_calls', includeIfNull: false, defaultValue: [])
-  final List<ToolCall> toolCalls;
+  @JsonKey(name: 'tool_calls', includeIfNull: false, defaultValue: null)
+  final List<ToolCall>? toolCalls;
 
   @JsonKey(name: 'role', includeIfNull: false, defaultValue: "")
   final String role;

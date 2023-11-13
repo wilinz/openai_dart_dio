@@ -104,7 +104,17 @@ class MessageContent with EquatableMixin {
   @JsonKey(name: 'image_url', includeIfNull: false)
   final ImageInfo? imageUrl;
 
+  bool get isImage => type == MessageContentType.imageUrl;
+
+  bool get isText => type == MessageContentType.text;
+
   MessageContent({required this.type, this.text, this.imageUrl});
+
+  factory MessageContent.fromText(String text) =>
+      MessageContent(type: MessageContentType.text, text: text);
+
+  factory MessageContent.fromImage(ImageInfo image) =>
+      MessageContent(type: MessageContentType.imageUrl, imageUrl: image);
 
   factory MessageContent.fromJson(Map<String, dynamic> json) =>
       _$MessageContentFromJson(json);

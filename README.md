@@ -1,49 +1,120 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# OpenAi dart sdk use dio
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- [x] chat completion
+    - [x] chat
+    - [x] chat stream
+    - [x] chat image
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+dependencies:
+  # ...
+  openai_dart_dio:
+    git: 
+      url: https://github.com/wilinz/openai-dart-dio
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Example: 
 
 ```dart
-const like = 'sample';
+import 'dart:io';
+
+import 'package:openai_dart_dio/src/api/openai_client.dart';
+import 'package:openai_dart_dio/src/model/chat/request/chat_completion_request.dart';
+import 'package:openai_dart_dio/src/model/chat/request/chat_message/chat_message.dart';
+
+Future<void> main() async {
+  print("Type Api Key please: ");
+  final apiKey = stdin.readLineSync()!;
+
+  final client = OpenAiClient(apiKey: apiKey);
+
+  print("""
+Choice function please: 
+1. Chat Not Stream
+2. Chat Stream
+3  Chat Image""");
+  final option = int.parse(stdin.readLineSync()!);
+  switch (option) {
+    case 1:
+      chatNotStream(client);
+    case 2:
+      chatStream(client);
+    case 3:
+      chatImage(client);
+  }
+}
+
+chatNotStream(OpenAiClient client) async {
+  final messages = [
+    ChatMessage(role: ChatMessageRole.user, content: "Write a 200 word novel")
+  ];
+
+  final request =
+  ChatCompletionRequest(messages: messages, model: "gpt-3.5-turbo-1106");
+  final resp = await client.chatCompletionApi.createChatCompletion(request);
+  print(resp.toJson());
+  print(resp.choices.first.message.content);
+}
+
+chatStream(OpenAiClient client) async {
+  final messages = [
+    ChatMessage(role: ChatMessageRole.user, content: "Write a 200 word novel")
+  ];
+  final request =
+  ChatCompletionRequest(messages: messages, model: "gpt-3.5-turbo-1106");
+  final stream = client.chatCompletionApi.createChatCompletionStream(request);
+  stream.listen((data) {
+    final content = data.choices.first.delta.content;
+    if (content != null) {
+      stdout.write(content);
+    }
+  });
+}
+
+chatImage(OpenAiClient client) async {
+  // final base64Image = ImageInfo.fromBase64("base64 text");
+  //
+  // final file = File("path");
+  //
+  // final bytes = await file.readAsBytes();
+  // final bytesImage = ImageInfo.fromBytes(bytes);
+  //
+  // final fileStream = File("path").openRead();
+  // final streamImage = await ImageInfo.fromStream(fileStream);
+
+  // image from url , http / https / data url
+  final urlImage = ImageInfo(
+      "https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg?crop=0.88847xw:1xh;center,top&resize=1200:*");
+
+  final messages = [
+    ChatMessage(role: ChatMessageRole.user, content: [
+      MessageContent.fromText("What is this picture?"),
+      MessageContent.fromImage(urlImage)
+    ])
+  ];
+
+  final request =
+  ChatCompletionRequest(messages: messages, model: "gpt-4-vision-preview");
+  final stream = client.chatCompletionApi.createChatCompletionStream(request);
+  stream.listen((data) {
+    final content = data.choices.first.delta.content;
+    if (content != null) {
+      stdout.write(content);
+    }
+  });
+}
+
 ```
 
-## Additional information
+## Developer Info
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
-
+Generate code
 ```shell
 flutter pub run build_runner build
-```
-
-这个正则表达式将匹配 @JsonKey(name: 'xxx') 这样的字符串，并将 xxx 作为捕获组进行替换。在替换字符串中使用 \1 表示捕获的内容，然后添加 ", includeIfNull: false"。
-
-```shell
-flutter pub run json5_model --src=lib/src/json --dist=lib/src/model
 ```
