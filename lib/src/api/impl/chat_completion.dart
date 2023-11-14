@@ -9,6 +9,8 @@ import 'package:openai_dart_dio/src/model/chat/response/chat_completion.dart';
 import 'package:openai_dart_dio/src/model/chat/response/chat_completion_chunk.dart';
 import 'package:openai_dart_dio/src/util/sse_transformer.dart';
 
+typedef ResponseCallback<T> = void Function(Response<T> response);
+
 class ChatCompletionApi extends Api {
   ChatCompletionApi({required Dio dio}) : super(dio);
 
@@ -18,9 +20,10 @@ class ChatCompletionApi extends Api {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    ResponseCallback<Map<String, dynamic>>? onResponse,
   }) async {
     try {
-      final response = await dio.post(
+      final response = await dio.post<Map<String, dynamic>>(
         '/v1/chat/completions',
         data: request.toJson(),
         options: options,
@@ -28,7 +31,8 @@ class ChatCompletionApi extends Api {
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress,
       );
-      return ChatCompletion.fromJson(response.data);
+      onResponse?.call(response);
+      return ChatCompletion.fromJson(response.data!);
     } catch (e) {
       print('Error creating chat completion: $e');
       rethrow;
@@ -41,6 +45,7 @@ class ChatCompletionApi extends Api {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
+    ResponseCallback<ResponseBody>? onResponse,
   }) async* {
     options ??= Options();
     options.responseType = ResponseType.stream;
@@ -57,6 +62,7 @@ class ChatCompletionApi extends Api {
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     );
+    onResponse?.call(response);
     if (response.data == null) {
       throw Exception('Response data is null');
     }
