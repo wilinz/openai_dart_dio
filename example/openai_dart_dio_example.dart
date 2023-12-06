@@ -65,7 +65,7 @@ chatImage(OpenAiClient client) async {
   // final streamImage = await ImageInfo.fromStream(fileStream);
 
   // image from url , http / https / data url
-  final urlImage = ImageInfo(
+  final urlImage = OpenAiImageInfo(
       "https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg?crop=0.88847xw:1xh;center,top&resize=1200:*");
 
   final messages = [

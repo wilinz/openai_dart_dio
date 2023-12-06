@@ -35,12 +35,13 @@ extension _$MessageContentAutoequal on MessageContent {
   List<Object?> get _$props => [type, text, imageUrl];
 }
 
-mixin _$ImageInfoAutoequalMixin on EquatableMixin {
+mixin _$OpenAiImageInfoAutoequalMixin on EquatableMixin {
   @override
-  List<Object?> get props => _$ImageInfoAutoequal(this as ImageInfo)._$props;
+  List<Object?> get props =>
+      _$OpenAiImageInfoAutoequal(this as OpenAiImageInfo)._$props;
 }
 
-extension _$ImageInfoAutoequal on ImageInfo {
+extension _$OpenAiImageInfoAutoequal on OpenAiImageInfo {
   List<Object?> get _$props => [url];
 }
 
@@ -218,7 +219,7 @@ abstract class _$MessageContentCWProxy {
 
   MessageContent text(String? text);
 
-  MessageContent imageUrl(ImageInfo? imageUrl);
+  MessageContent imageUrl(OpenAiImageInfo? imageUrl);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `MessageContent(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -229,7 +230,7 @@ abstract class _$MessageContentCWProxy {
   MessageContent call({
     String? type,
     String? text,
-    ImageInfo? imageUrl,
+    OpenAiImageInfo? imageUrl,
   });
 }
 
@@ -246,7 +247,8 @@ class _$MessageContentCWProxyImpl implements _$MessageContentCWProxy {
   MessageContent text(String? text) => this(text: text);
 
   @override
-  MessageContent imageUrl(ImageInfo? imageUrl) => this(imageUrl: imageUrl);
+  MessageContent imageUrl(OpenAiImageInfo? imageUrl) =>
+      this(imageUrl: imageUrl);
 
   @override
 
@@ -273,7 +275,7 @@ class _$MessageContentCWProxyImpl implements _$MessageContentCWProxy {
       imageUrl: imageUrl == const $CopyWithPlaceholder()
           ? _value.imageUrl
           // ignore: cast_nullable_to_non_nullable
-          : imageUrl as ImageInfo?,
+          : imageUrl as OpenAiImageInfo?,
     );
   }
 }
@@ -284,41 +286,41 @@ extension $MessageContentCopyWith on MessageContent {
   _$MessageContentCWProxy get copyWith => _$MessageContentCWProxyImpl(this);
 }
 
-abstract class _$ImageInfoCWProxy {
-  ImageInfo url(String url);
+abstract class _$OpenAiImageInfoCWProxy {
+  OpenAiImageInfo url(String url);
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ImageInfo(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `OpenAiImageInfo(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// ImageInfo(...).copyWith(id: 12, name: "My name")
+  /// OpenAiImageInfo(...).copyWith(id: 12, name: "My name")
   /// ````
-  ImageInfo call({
+  OpenAiImageInfo call({
     String? url,
   });
 }
 
-/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfImageInfo.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfImageInfo.copyWith.fieldName(...)`
-class _$ImageInfoCWProxyImpl implements _$ImageInfoCWProxy {
-  const _$ImageInfoCWProxyImpl(this._value);
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfOpenAiImageInfo.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfOpenAiImageInfo.copyWith.fieldName(...)`
+class _$OpenAiImageInfoCWProxyImpl implements _$OpenAiImageInfoCWProxy {
+  const _$OpenAiImageInfoCWProxyImpl(this._value);
 
-  final ImageInfo _value;
-
-  @override
-  ImageInfo url(String url) => this(url: url);
+  final OpenAiImageInfo _value;
 
   @override
+  OpenAiImageInfo url(String url) => this(url: url);
 
-  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ImageInfo(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  @override
+
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `OpenAiImageInfo(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
   /// ```dart
-  /// ImageInfo(...).copyWith(id: 12, name: "My name")
+  /// OpenAiImageInfo(...).copyWith(id: 12, name: "My name")
   /// ````
-  ImageInfo call({
+  OpenAiImageInfo call({
     Object? url = const $CopyWithPlaceholder(),
   }) {
-    return ImageInfo(
+    return OpenAiImageInfo(
       url == const $CopyWithPlaceholder() || url == null
           ? _value.url
           // ignore: cast_nullable_to_non_nullable
@@ -327,10 +329,10 @@ class _$ImageInfoCWProxyImpl implements _$ImageInfoCWProxy {
   }
 }
 
-extension $ImageInfoCopyWith on ImageInfo {
-  /// Returns a callable class that can be used as follows: `instanceOfImageInfo.copyWith(...)` or like so:`instanceOfImageInfo.copyWith.fieldName(...)`.
+extension $OpenAiImageInfoCopyWith on OpenAiImageInfo {
+  /// Returns a callable class that can be used as follows: `instanceOfOpenAiImageInfo.copyWith(...)` or like so:`instanceOfOpenAiImageInfo.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
-  _$ImageInfoCWProxy get copyWith => _$ImageInfoCWProxyImpl(this);
+  _$OpenAiImageInfoCWProxy get copyWith => _$OpenAiImageInfoCWProxyImpl(this);
 }
 
 // **************************************************************************
@@ -384,7 +386,7 @@ MessageContent _$MessageContentFromJson(Map<String, dynamic> json) =>
       text: json['text'] as String?,
       imageUrl: json['image_url'] == null
           ? null
-          : ImageInfo.fromJson(json['image_url'] as Map<String, dynamic>),
+          : OpenAiImageInfo.fromJson(json['image_url'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$MessageContentToJson(MessageContent instance) {
@@ -403,10 +405,12 @@ Map<String, dynamic> _$MessageContentToJson(MessageContent instance) {
   return val;
 }
 
-ImageInfo _$ImageInfoFromJson(Map<String, dynamic> json) => ImageInfo(
+OpenAiImageInfo _$OpenAiImageInfoFromJson(Map<String, dynamic> json) =>
+    OpenAiImageInfo(
       json['url'] as String,
     );
 
-Map<String, dynamic> _$ImageInfoToJson(ImageInfo instance) => <String, dynamic>{
+Map<String, dynamic> _$OpenAiImageInfoToJson(OpenAiImageInfo instance) =>
+    <String, dynamic>{
       'url': instance.url,
     };

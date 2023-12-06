@@ -102,7 +102,7 @@ class MessageContent with EquatableMixin {
   @JsonKey(name: 'text', includeIfNull: false)
   final String? text;
   @JsonKey(name: 'image_url', includeIfNull: false)
-  final ImageInfo? imageUrl;
+  final OpenAiImageInfo? imageUrl;
 
   bool get isImage => type == MessageContentType.imageUrl;
 
@@ -113,7 +113,7 @@ class MessageContent with EquatableMixin {
   factory MessageContent.fromText(String text) =>
       MessageContent(type: MessageContentType.text, text: text);
 
-  factory MessageContent.fromImage(ImageInfo image) =>
+  factory MessageContent.fromImage(OpenAiImageInfo image) =>
       MessageContent(type: MessageContentType.imageUrl, imageUrl: image);
 
   factory MessageContent.fromJson(Map<String, dynamic> json) =>
@@ -128,30 +128,30 @@ class MessageContent with EquatableMixin {
 @CopyWith()
 @autoequal
 @JsonSerializable(explicitToJson: true)
-class ImageInfo with EquatableMixin {
+class OpenAiImageInfo with EquatableMixin {
   @JsonKey(name: 'url', includeIfNull: false)
   String url;
 
-  ImageInfo(this.url);
+  OpenAiImageInfo(this.url);
 
-  factory ImageInfo.fromBase64(String base64) {
-    return ImageInfo("data:image/jpeg;base64,$base64");
+  factory OpenAiImageInfo.fromBase64(String base64) {
+    return OpenAiImageInfo("data:image/jpeg;base64,$base64");
   }
 
-  factory ImageInfo.fromBytes(List<int> bytes) {
+  factory OpenAiImageInfo.fromBytes(List<int> bytes) {
     final b64 = base64Encode(Uint8List.fromList(bytes));
-    return ImageInfo("data:image/jpeg;base64,$b64");
+    return OpenAiImageInfo("data:image/jpeg;base64,$b64");
   }
 
-  static Future<ImageInfo> fromStream(Stream<List<int>> stream) async {
+  static Future<OpenAiImageInfo> fromStream(Stream<List<int>> stream) async {
     String base64String = await stream.transform(Base64Encoder()).join();
-    return ImageInfo("data:image/jpeg;base64,$base64String");
+    return OpenAiImageInfo("data:image/jpeg;base64,$base64String");
   }
 
-  factory ImageInfo.fromJson(Map<String, dynamic> json) =>
-      _$ImageInfoFromJson(json);
+  factory OpenAiImageInfo.fromJson(Map<String, dynamic> json) =>
+      _$OpenAiImageInfoFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ImageInfoToJson(this);
+  Map<String, dynamic> toJson() => _$OpenAiImageInfoToJson(this);
 
   @override
   List<Object?> get props => _$props;

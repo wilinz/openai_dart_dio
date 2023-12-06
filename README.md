@@ -6,6 +6,9 @@
     - [x] chat
     - [x] chat stream
     - [x] chat image
+- [x] models
+  - [x] list models
+  - [x] retrieve models
 
 ## Getting started
 
