@@ -9,7 +9,7 @@ import 'package:openai_dart_dio/src/model/chat/response/chat_completion.dart';
 import 'package:openai_dart_dio/src/model/chat/response/chat_completion_chunk.dart';
 import 'package:openai_dart_dio/src/util/sse_transformer.dart';
 
-typedef ResponseCallback<T> = void Function(Response<T> response);
+import 'common.dart';
 
 class ChatCompletionApi extends Api {
   ChatCompletionApi({required Dio dio}) : super(dio);

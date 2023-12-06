@@ -5,6 +5,7 @@ library openai_dart_dio;
 export 'src/api/api_client.dart';
 export 'src/api/impl/audio.dart';
 export 'src/api/impl/chat_completion.dart';
+export 'src/api/impl/models.dart';
 export 'src/api/openai_client.dart';
 export 'src/model/assistant/assistant_file/assistant_file.dart';
 export 'src/model/assistant/list_assistant/list_assistant.dart';
