@@ -9,7 +9,15 @@
 - [x] models
   - [x] list models
   - [x] retrieve models
-
+- [x] images
+  - [x] images generations
+  - [x] images edits
+  - [x] images variations
+- [x] audio
+  - [x] audio speech
+  - [x] audio transcriptions
+  - [x] audio translations
+  
 ## Getting started
 
 ```yaml
@@ -120,4 +128,8 @@ chatImage(OpenAiClient client) async {
 Generate code
 ```shell
 flutter pub run build_runner build
+```
+
+```shell
+flutter pub run json5_model --src=lib/src/json --dist=lib/src/model
 ```

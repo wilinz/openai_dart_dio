@@ -41,7 +41,7 @@ class ImageEditRequest {
     this.user,
   });
 
-  Map<String, dynamic> toJson() => _$ImageEditRequestToJson(this)
+  Map<String, dynamic> toMap() => _$ImageEditRequestToJson(this)
     ..['image'] = image
     ..['mask'] = mask;
 }

@@ -9,7 +9,6 @@ part of 'image_variation_request.dart';
 ImageVariationRequest _$ImageVariationRequestFromJson(
         Map<String, dynamic> json) =>
     ImageVariationRequest(
-      image: json['image'] as String,
       model: json['model'] as String?,
       n: json['n'] as int?,
       responseFormat: json['response_format'] as String?,
@@ -19,9 +18,7 @@ ImageVariationRequest _$ImageVariationRequestFromJson(
 
 Map<String, dynamic> _$ImageVariationRequestToJson(
     ImageVariationRequest instance) {
-  final val = <String, dynamic>{
-    'image': instance.image,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
