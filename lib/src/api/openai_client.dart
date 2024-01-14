@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:openai_dart_dio/openai_dart_dio.dart';
 import 'package:openai_dart_dio/src/api/impl/chat_completion.dart';
+import 'package:openai_dart_dio/src/api/impl/image.dart';
 import 'package:openai_dart_dio/src/util/conversion_layer_adapter.dart';
 import 'package:http/http.dart';
 
@@ -31,4 +32,11 @@ class OpenAiClient {
 
   ModelsApi get modelApi => _modelApi ??= ModelsApi(dio: _dio);
 
+  AudioApi? _audioApi;
+
+  AudioApi get audioApi => _audioApi ??= AudioApi(dio: _dio);
+
+  ImageApi? _imageApi;
+
+  ImageApi get imageApi => _imageApi ??= ImageApi(dio: _dio);
 }
