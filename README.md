@@ -133,3 +133,11 @@ flutter pub run build_runner build
 ```shell
 flutter pub run json5_model --src=lib/src/json --dist=lib/src/model
 ```
+
+```shell
+flutter pub global activate index_generator
+```
+
+```shell
+flutter pub global run index_generator
+```

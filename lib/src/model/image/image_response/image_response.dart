@@ -30,6 +30,7 @@ class ImageResponseData {
   @JsonKey(name: "url", defaultValue: "")
   String url;
 
+  /// base64 string without data: prefix
   @JsonKey(name: "b64_json", defaultValue: "")
   String b64Json;
 
