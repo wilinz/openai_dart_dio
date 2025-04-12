@@ -16,7 +16,7 @@ class AudioApi extends Api {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    ResponseCallback<Map<String, dynamic>>? onResponse,
+    ResponseCallback<ResponseBody>? onResponse,
   }) async* {
     options ??= Options();
     options.responseType = ResponseType.stream;
@@ -26,6 +26,7 @@ class AudioApi extends Api {
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress);
+    onResponse?.call(response);
     if (response.data == null) {
       throw Exception('Response data is null');
     }
@@ -38,16 +39,17 @@ class AudioApi extends Api {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    ResponseCallback<Map<String, dynamic>>? onResponse,
+    ResponseCallback<T>? onResponse,
   }) async {
     FormData formData = FormData.fromMap(request.toMap());
-    Response response = await dio.post('/v1/audio/transcriptions',
+    final response = await dio.post<T>('/v1/audio/transcriptions',
         data: formData,
         options: options,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress);
-    return response.data;
+    onResponse?.call(response);
+    return Future.value(response.data);
   }
 
   Future<T> translations<T>(
@@ -56,15 +58,16 @@ class AudioApi extends Api {
     CancelToken? cancelToken,
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
-    ResponseCallback<Map<String, dynamic>>? onResponse,
+    ResponseCallback<T>? onResponse,
   }) async {
     FormData formData = FormData.fromMap(request.toMap());
-    Response response = await dio.post('/v1/audio/translations',
+    final response = await dio.post<T>('/v1/audio/translations',
         data: formData,
         options: options,
         cancelToken: cancelToken,
         onSendProgress: onSendProgress,
         onReceiveProgress: onReceiveProgress);
-    return response.data;
+    onResponse?.call(response);
+    return Future.value(response.data);
   }
 }
