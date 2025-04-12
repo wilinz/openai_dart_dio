@@ -485,7 +485,7 @@ ChatCompletion _$ChatCompletionFromJson(Map<String, dynamic> json) =>
                   ChatCompletionChoice.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
-      created: json['created'] as int? ?? 0,
+      created: (json['created'] as num?)?.toInt() ?? 0,
       model: json['model'] as String? ?? '',
       systemFingerprint: json['system_fingerprint'] as String? ?? '',
       object: json['object'] as String? ?? '',
@@ -507,7 +507,7 @@ ChatCompletionChoice _$ChatCompletionChoiceFromJson(
         Map<String, dynamic> json) =>
     ChatCompletionChoice(
       finishReason: json['finish_reason'] as String? ?? '',
-      index: json['index'] as int? ?? 0,
+      index: (json['index'] as num?)?.toInt() ?? 0,
       message: ChatCompletionMessage.fromJson(
           json['message'] as Map<String, dynamic>),
     );
@@ -560,9 +560,9 @@ Map<String, dynamic> _$ToolCallToJson(ToolCall instance) => <String, dynamic>{
     };
 
 Usage _$UsageFromJson(Map<String, dynamic> json) => Usage(
-      completionTokens: json['completion_tokens'] as int? ?? 0,
-      promptTokens: json['prompt_tokens'] as int? ?? 0,
-      totalTokens: json['total_tokens'] as int? ?? 0,
+      completionTokens: (json['completion_tokens'] as num?)?.toInt() ?? 0,
+      promptTokens: (json['prompt_tokens'] as num?)?.toInt() ?? 0,
+      totalTokens: (json['total_tokens'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$UsageToJson(Usage instance) => <String, dynamic>{

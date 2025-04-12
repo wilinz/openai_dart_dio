@@ -10,7 +10,7 @@ OpenAiMessageFile _$OpenAiMessageFileFromJson(Map<String, dynamic> json) =>
     OpenAiMessageFile(
       id: json['id'] as String? ?? '',
       object: json['object'] as String? ?? '',
-      createdAt: json['created_at'] as int? ?? 0,
+      createdAt: (json['created_at'] as num?)?.toInt() ?? 0,
       messageId: json['message_id'] as String? ?? '',
       fileId: json['file_id'] as String? ?? '',
     );

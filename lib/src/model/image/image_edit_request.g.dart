@@ -10,7 +10,7 @@ ImageEditRequest _$ImageEditRequestFromJson(Map<String, dynamic> json) =>
     ImageEditRequest(
       prompt: json['prompt'] as String,
       model: json['model'] as String?,
-      n: json['n'] as int?,
+      n: (json['n'] as num?)?.toInt(),
       size: json['size'] as String?,
       responseFormat: json['response_format'] as String?,
       user: json['user'] as String?,

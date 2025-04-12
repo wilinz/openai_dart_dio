@@ -10,7 +10,7 @@ OpenAiMessage _$OpenAiMessageFromJson(Map<String, dynamic> json) =>
     OpenAiMessage(
       id: json['id'] as String? ?? '',
       object: json['object'] as String? ?? '',
-      createdAt: json['created_at'] as int? ?? 0,
+      createdAt: (json['created_at'] as num?)?.toInt() ?? 0,
       threadId: json['thread_id'] as String? ?? '',
       role: json['role'] as String? ?? '',
       content: (json['content'] as List<dynamic>?)

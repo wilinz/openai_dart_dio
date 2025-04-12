@@ -9,7 +9,7 @@ part of 'open_ai_model.dart';
 OpenAiModel _$OpenAiModelFromJson(Map<String, dynamic> json) => OpenAiModel(
       id: json['id'] as String? ?? '',
       object: json['object'] as String? ?? '',
-      created: json['created'] as int? ?? 0,
+      created: (json['created'] as num?)?.toInt() ?? 0,
       ownedBy: json['owned_by'] as String? ?? '',
     );
 

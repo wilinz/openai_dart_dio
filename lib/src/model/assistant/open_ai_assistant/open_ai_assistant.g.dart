@@ -10,7 +10,7 @@ OpenAiAssistant _$OpenAiAssistantFromJson(Map<String, dynamic> json) =>
     OpenAiAssistant(
       id: json['id'] as String? ?? '',
       object: json['object'] as String? ?? '',
-      createdAt: json['created_at'] as int? ?? 0,
+      createdAt: (json['created_at'] as num?)?.toInt() ?? 0,
       name: json['name'] as String? ?? '',
       description: json['description'],
       model: json['model'] as String? ?? '',

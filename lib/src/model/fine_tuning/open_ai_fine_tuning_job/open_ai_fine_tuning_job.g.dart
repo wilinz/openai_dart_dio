@@ -10,7 +10,7 @@ OpenAiFineTuningJob _$OpenAiFineTuningJobFromJson(Map<String, dynamic> json) =>
     OpenAiFineTuningJob(
       object: json['object'] as String? ?? '',
       id: json['id'] as String? ?? '',
-      createdAt: json['created_at'] as int? ?? 0,
+      createdAt: (json['created_at'] as num?)?.toInt() ?? 0,
       level: json['level'] as String? ?? '',
       message: json['message'] as String? ?? '',
     );

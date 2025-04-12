@@ -13,7 +13,7 @@ OpenAiEmbedding _$OpenAiEmbeddingFromJson(Map<String, dynamic> json) =>
               ?.map((e) => (e as num).toDouble())
               .toList() ??
           [],
-      index: json['index'] as int? ?? 0,
+      index: (json['index'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$OpenAiEmbeddingToJson(OpenAiEmbedding instance) =>

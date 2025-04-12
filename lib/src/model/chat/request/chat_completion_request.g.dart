@@ -691,14 +691,14 @@ ChatCompletionRequest _$ChatCompletionRequestFromJson(
       model: json['model'] as String,
       frequencyPenalty: (json['frequency_penalty'] as num?)?.toDouble(),
       logitBias: json['logit_bias'] as Map<String, dynamic>?,
-      maxTokens: json['max_tokens'] as int?,
-      n: json['n'] as int?,
+      maxTokens: (json['max_tokens'] as num?)?.toInt(),
+      n: (json['n'] as num?)?.toInt(),
       presencePenalty: (json['presence_penalty'] as num?)?.toDouble(),
       responseFormat: json['response_format'] == null
           ? null
           : ResponseFormat.fromJson(
               json['response_format'] as Map<String, dynamic>),
-      seed: json['seed'] as int?,
+      seed: (json['seed'] as num?)?.toInt(),
       stop: json['stop'],
       stream: json['stream'] as bool?,
       temperature: (json['temperature'] as num?)?.toDouble(),

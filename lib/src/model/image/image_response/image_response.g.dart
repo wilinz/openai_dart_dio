@@ -8,7 +8,7 @@ part of 'image_response.dart';
 
 ImageResponse _$ImageResponseFromJson(Map<String, dynamic> json) =>
     ImageResponse(
-      created: json['created'] as int? ?? 0,
+      created: (json['created'] as num?)?.toInt() ?? 0,
       data: (json['data'] as List<dynamic>?)
               ?.map(
                   (e) => ImageResponseData.fromJson(e as Map<String, dynamic>))

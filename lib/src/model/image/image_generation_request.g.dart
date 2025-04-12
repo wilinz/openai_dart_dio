@@ -11,7 +11,7 @@ ImageGenerationRequest _$ImageGenerationRequestFromJson(
     ImageGenerationRequest(
       prompt: json['prompt'] as String,
       model: json['model'] as String?,
-      n: json['n'] as int?,
+      n: (json['n'] as num?)?.toInt(),
       quality: json['quality'] as String?,
       responseFormat: json['response_format'] as String?,
       size: json['size'] as String?,

@@ -11,6 +11,7 @@ SpeechRequest _$SpeechRequestFromJson(Map<String, dynamic> json) =>
       model: json['model'] as String,
       input: json['input'] as String,
       voice: json['voice'] as String,
+      instructions: json['instructions'] as String?,
       responseFormat: json['response_format'] as String?,
       speed: json['speed'] as num?,
     );
@@ -28,6 +29,7 @@ Map<String, dynamic> _$SpeechRequestToJson(SpeechRequest instance) {
     }
   }
 
+  writeNotNull('instructions', instance.instructions);
   writeNotNull('response_format', instance.responseFormat);
   writeNotNull('speed', instance.speed);
   return val;

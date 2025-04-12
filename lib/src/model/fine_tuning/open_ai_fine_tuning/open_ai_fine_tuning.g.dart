@@ -11,8 +11,8 @@ OpenAiFineTuning _$OpenAiFineTuningFromJson(Map<String, dynamic> json) =>
       object: json['object'] as String? ?? '',
       id: json['id'] as String? ?? '',
       model: json['model'] as String? ?? '',
-      createdAt: json['created_at'] as int? ?? 0,
-      finishedAt: json['finished_at'] as int? ?? 0,
+      createdAt: (json['created_at'] as num?)?.toInt() ?? 0,
+      finishedAt: (json['finished_at'] as num?)?.toInt() ?? 0,
       fineTunedModel: json['fine_tuned_model'] as String? ?? '',
       organizationId: json['organization_id'] as String? ?? '',
       resultFiles: (json['result_files'] as List<dynamic>?)
@@ -24,7 +24,7 @@ OpenAiFineTuning _$OpenAiFineTuningFromJson(Map<String, dynamic> json) =>
       trainingFile: json['training_file'] as String? ?? '',
       hyperparameters: Hyperparameters.fromJson(
           json['hyperparameters'] as Map<String, dynamic>),
-      trainedTokens: json['trained_tokens'] as int? ?? 0,
+      trainedTokens: (json['trained_tokens'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$OpenAiFineTuningToJson(OpenAiFineTuning instance) =>
@@ -46,7 +46,7 @@ Map<String, dynamic> _$OpenAiFineTuningToJson(OpenAiFineTuning instance) =>
 
 Hyperparameters _$HyperparametersFromJson(Map<String, dynamic> json) =>
     Hyperparameters(
-      nEpochs: json['n_epochs'] as int? ?? 0,
+      nEpochs: (json['n_epochs'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$HyperparametersToJson(Hyperparameters instance) =>

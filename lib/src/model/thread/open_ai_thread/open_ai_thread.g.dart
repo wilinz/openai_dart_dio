@@ -9,7 +9,7 @@ part of 'open_ai_thread.dart';
 OpenAiThread _$OpenAiThreadFromJson(Map<String, dynamic> json) => OpenAiThread(
       id: json['id'] as String? ?? '',
       object: json['object'] as String? ?? '',
-      createdAt: json['created_at'] as int? ?? 0,
+      createdAt: (json['created_at'] as num?)?.toInt() ?? 0,
       metadata: json['metadata'] == null
           ? null
           : Metadata.fromJson(json['metadata'] as Map<String, dynamic>),

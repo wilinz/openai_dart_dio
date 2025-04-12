@@ -404,7 +404,7 @@ ChatCompletionChunk _$ChatCompletionChunkFromJson(Map<String, dynamic> json) =>
                   ChatCompletionChoiceChunk.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
-      created: json['created'] as int? ?? 0,
+      created: (json['created'] as num?)?.toInt() ?? 0,
       model: json['model'] as String? ?? '',
       systemFingerprint: json['system_fingerprint'] as String? ?? '',
       object: json['object'] as String? ?? '',
@@ -427,7 +427,7 @@ ChatCompletionChoiceChunk _$ChatCompletionChoiceChunkFromJson(
       delta: ChatCompletionDeltaChunk.fromJson(
           json['delta'] as Map<String, dynamic>),
       finishReason: json['finish_reason'] as String?,
-      index: json['index'] as int? ?? 0,
+      index: (json['index'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$ChatCompletionChoiceChunkToJson(
@@ -449,7 +449,7 @@ Map<String, dynamic> _$ChatCompletionChoiceChunkToJson(
 
 ToolCallChunk _$ToolCallChunkFromJson(Map<String, dynamic> json) =>
     ToolCallChunk(
-      index: json['index'] as int? ?? 0,
+      index: (json['index'] as num?)?.toInt() ?? 0,
       id: json['id'] as String? ?? '',
       type: json['type'] as String? ?? '',
       function: FunctionCall.fromJson(json['function'] as Map<String, dynamic>),

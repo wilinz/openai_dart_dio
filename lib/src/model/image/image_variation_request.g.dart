@@ -10,7 +10,7 @@ ImageVariationRequest _$ImageVariationRequestFromJson(
         Map<String, dynamic> json) =>
     ImageVariationRequest(
       model: json['model'] as String?,
-      n: json['n'] as int?,
+      n: (json['n'] as num?)?.toInt(),
       responseFormat: json['response_format'] as String?,
       size: json['size'] as String?,
       user: json['user'] as String?,
