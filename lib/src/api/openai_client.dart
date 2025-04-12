@@ -16,7 +16,7 @@ class OpenAiClient {
       Dio? dio,
       Client? httpClient}) {
     _dio = dio ?? Dio();
-    _dio.options = BaseOptions(
+    _dio.options = _dio.options.copyWith(
         baseUrl: baseUrl, headers: {'Authorization': 'Bearer $apiKey'});
     if (httpClient != null) {
       _dio.httpClientAdapter = ConversionLayerAdapter(httpClient);
