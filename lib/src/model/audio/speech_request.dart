@@ -13,6 +13,9 @@ class SpeechRequest {
   @JsonKey(name: 'voice', includeIfNull: false)
   final String voice;
 
+  @JsonKey(name: 'instructions', includeIfNull: false)
+  String? instructions;
+
   @JsonKey(name: 'response_format', includeIfNull: false)
   final String? responseFormat;
 
