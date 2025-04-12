@@ -26,6 +26,7 @@ class SpeechRequest {
     required this.model,
     required this.input,
     required this.voice,
+    this.instructions,
     this.responseFormat,
     this.speed,
   });
@@ -36,7 +37,7 @@ class SpeechRequest {
   Map<String, dynamic> toJson() => _$SpeechRequestToJson(this);
 
   @override
-  String toString() => 'SpeechRequest{model: $model, input: $input, voice: $voice, responseFormat: $responseFormat, speed: $speed}';
+  String toString() => 'SpeechRequest{model: $model, input: $input, voice: $voice, responseFormat: $responseFormat, speed: $speed, instructions: $instructions}';
 
   @override
   bool operator ==(Object other) =>
@@ -46,6 +47,7 @@ class SpeechRequest {
           model == other.model &&
           input == other.input &&
           voice == other.voice &&
+          instructions == other.instructions &&
           responseFormat == other.responseFormat &&
           speed == other.speed;
 
@@ -54,6 +56,7 @@ class SpeechRequest {
       model.hashCode ^
       input.hashCode ^
       voice.hashCode ^
+      instructions.hashCode ^
       responseFormat.hashCode ^
       speed.hashCode;
 }
