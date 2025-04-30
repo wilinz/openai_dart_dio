@@ -1,14 +1,30 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:openai_dart_dio/src/api/openai_client.dart';
 import 'package:openai_dart_dio/src/model/chat/request/chat_completion_request.dart';
 import 'package:openai_dart_dio/src/model/chat/request/chat_message/chat_message.dart';
 
 Future<void> main() async {
+  print("Type Api baseUrl please: ");
+  final baseUrl = stdin.readLineSync() ?? OpenAiClient.defaultBaseUrl;
+
   print("Type Api Key please: ");
   final apiKey = stdin.readLineSync()!;
 
-  final client = OpenAiClient(apiKey: apiKey);
+  final dio = Dio();
+  // (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
+  //   final client = HttpClient();
+  //   client.findProxy = (uri) {
+  //     return "PROXY 127.0.0.1:9000";
+  //   };
+  //   client.badCertificateCallback =
+  //       (X509Certificate cert, String host, int port) => true;
+  //   return client;
+  // };
+
+  final client = OpenAiClient(apiKey: apiKey, baseUrl: baseUrl, dio: dio);
 
   print("""
 Choice function please: 
@@ -46,7 +62,7 @@ chatStream(OpenAiClient client) async {
       ChatCompletionRequest(messages: messages, model: "gpt-3.5-turbo-1106");
   final stream = client.chatCompletionApi.createChatCompletionStream(request);
   stream.listen((data) {
-    final content = data.choices.first.delta.content;
+    final content = data.choices.firstOrNull?.delta.content;
     if (content != null) {
       stdout.write(content);
     }
