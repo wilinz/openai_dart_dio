@@ -20,9 +20,8 @@
   
 ## Getting started
 
-```yaml
-dependencies:
-  openai_dart_dio: ^2.0.0
+```shell
+dart pub add openai_dart_dio
 ```
 
 ## Usage
