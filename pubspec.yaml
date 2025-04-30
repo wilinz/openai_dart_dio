@@ -1,7 +1,7 @@
 name: openai_dart_dio
 description: ｜
   `openai_dart_dio` is a type-safe Dart library for interacting with the OpenAI API, built on the Dio HTTP client. It simplifies making requests to OpenAI services like GPT-3, DALL·E, and Codex, with automatic JSON serialization and robust error handling. The library ensures a streamlined and efficient integration, offering strong type safety and easy-to-use API calls for Dart and Flutter developers.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/wilinz/openai_dart_dio
 repository: https://github.com/wilinz/openai_dart_dio
 
