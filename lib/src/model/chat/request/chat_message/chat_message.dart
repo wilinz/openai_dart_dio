@@ -130,7 +130,7 @@ class MessageContent with EquatableMixin {
 @JsonSerializable(explicitToJson: true)
 class OpenAiImageInfo with EquatableMixin {
   @JsonKey(name: 'url', includeIfNull: false)
-  String url;
+  final String url;
 
   OpenAiImageInfo(this.url);
 

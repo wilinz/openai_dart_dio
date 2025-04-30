@@ -1,9 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'assistant_file.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class AssistantFile {
+class AssistantFile with EquatableMixin {
+
   AssistantFile(
       {required this.id,
       required this.object,
@@ -11,21 +17,26 @@ class AssistantFile {
       required this.assistantId});
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "created_at", defaultValue: 0)
-  int createdAt;
+  final int createdAt;
 
   @JsonKey(name: "assistant_id", defaultValue: "")
-  String assistantId;
+  final String assistantId;
 
 
   factory AssistantFile.fromJson(Map<String, dynamic> json) => _$AssistantFileFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$AssistantFileToJson(this);
+  
+  factory AssistantFile.emptyInstance() => AssistantFile(id: "", object: "", createdAt: 0, assistantId: "");
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
 

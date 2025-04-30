@@ -1,10 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:openai_dart_dio/src/model/chat/response/chat_completion.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'embeddings_response.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class EmbeddingsResponse {
+class EmbeddingsResponse with EquatableMixin {
+
   EmbeddingsResponse(
       {required this.object,
       required this.data,
@@ -12,44 +17,82 @@ class EmbeddingsResponse {
       required this.usage});
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "data", defaultValue: [])
-  List<Embedding> data;
+  final List<EmbeddingsDataItem> data;
 
   @JsonKey(name: "model", defaultValue: "")
-  String model;
+  final String model;
 
-  @JsonKey(name: "usage")
-  Usage usage;
+  @JsonKey(name: "usage", defaultValue: EmbeddingsUsage.emptyInstance)
+  final EmbeddingsUsage usage;
 
 
   factory EmbeddingsResponse.fromJson(Map<String, dynamic> json) => _$EmbeddingsResponseFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$EmbeddingsResponseToJson(this);
+  
+  factory EmbeddingsResponse.emptyInstance() => EmbeddingsResponse(object: "", data: [], model: "", usage: EmbeddingsUsage.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class Embedding {
-  Embedding(
+class EmbeddingsDataItem with EquatableMixin {
+
+  EmbeddingsDataItem(
       {required this.object,
       required this.embedding,
       required this.index});
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "embedding", defaultValue: [])
-  List<double> embedding;
+  final List<double> embedding;
 
   @JsonKey(name: "index", defaultValue: 0)
-  int index;
+  final int index;
 
 
-  factory Embedding.fromJson(Map<String, dynamic> json) => _$EmbeddingFromJson(json);
-
-  Map<String, dynamic> toJson() => _$EmbeddingToJson(this);
+  factory EmbeddingsDataItem.fromJson(Map<String, dynamic> json) => _$EmbeddingsDataItemFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$EmbeddingsDataItemToJson(this);
+  
+  factory EmbeddingsDataItem.emptyInstance() => EmbeddingsDataItem(object: "", embedding: [], index: 0);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class EmbeddingsUsage with EquatableMixin {
+
+  EmbeddingsUsage(
+      {required this.promptTokens,
+      required this.totalTokens});
+
+  @JsonKey(name: "prompt_tokens", defaultValue: 0)
+  final int promptTokens;
+
+  @JsonKey(name: "total_tokens", defaultValue: 0)
+  final int totalTokens;
+
+
+  factory EmbeddingsUsage.fromJson(Map<String, dynamic> json) => _$EmbeddingsUsageFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$EmbeddingsUsageToJson(this);
+  
+  factory EmbeddingsUsage.emptyInstance() => EmbeddingsUsage(promptTokens: 0, totalTokens: 0);
+  
+  @override
+  List<Object?> get props => _$props;
+}
 
 

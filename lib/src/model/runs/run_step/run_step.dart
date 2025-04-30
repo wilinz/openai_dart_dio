@@ -1,9 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'run_step.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class RunStep {
+class RunStep with EquatableMixin {
+
   RunStep(
       {required this.id,
       required this.object,
@@ -21,83 +27,104 @@ class RunStep {
       required this.stepDetails});
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "created_at", defaultValue: 0)
-  int createdAt;
+  final int createdAt;
 
   @JsonKey(name: "run_id", defaultValue: "")
-  String runId;
+  final String runId;
 
   @JsonKey(name: "assistant_id", defaultValue: "")
-  String assistantId;
+  final String assistantId;
 
   @JsonKey(name: "thread_id", defaultValue: "")
-  String threadId;
+  final String threadId;
 
   @JsonKey(name: "type", defaultValue: "")
-  String type;
+  final String type;
 
   @JsonKey(name: "status", defaultValue: "")
-  String status;
+  final String status;
 
   @JsonKey(name: "cancelled_at")
-  dynamic cancelledAt;
+  final dynamic cancelledAt;
 
   @JsonKey(name: "completed_at", defaultValue: 0)
-  int completedAt;
+  final int completedAt;
 
   @JsonKey(name: "expired_at")
-  dynamic expiredAt;
+  final dynamic expiredAt;
 
   @JsonKey(name: "failed_at")
-  dynamic failedAt;
+  final dynamic failedAt;
 
   @JsonKey(name: "last_error")
-  dynamic lastError;
+  final dynamic lastError;
 
-  @JsonKey(name: "step_details")
-  StepDetails stepDetails;
+  @JsonKey(name: "step_details", defaultValue: RunStepStepDetails.emptyInstance)
+  final RunStepStepDetails stepDetails;
 
 
   factory RunStep.fromJson(Map<String, dynamic> json) => _$RunStepFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$RunStepToJson(this);
+  
+  factory RunStep.emptyInstance() => RunStep(id: "", object: "", createdAt: 0, runId: "", assistantId: "", threadId: "", type: "", status: "", completedAt: 0, stepDetails: RunStepStepDetails.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class MessageCreation {
-  MessageCreation(
+class RunStepMessageCreation with EquatableMixin {
+
+  RunStepMessageCreation(
       {required this.messageId});
 
   @JsonKey(name: "message_id", defaultValue: "")
-  String messageId;
+  final String messageId;
 
 
-  factory MessageCreation.fromJson(Map<String, dynamic> json) => _$MessageCreationFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MessageCreationToJson(this);
+  factory RunStepMessageCreation.fromJson(Map<String, dynamic> json) => _$RunStepMessageCreationFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$RunStepMessageCreationToJson(this);
+  
+  factory RunStepMessageCreation.emptyInstance() => RunStepMessageCreation(messageId: "");
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class StepDetails {
-  StepDetails(
+class RunStepStepDetails with EquatableMixin {
+
+  RunStepStepDetails(
       {required this.type,
       required this.messageCreation});
 
   @JsonKey(name: "type", defaultValue: "")
-  String type;
+  final String type;
 
-  @JsonKey(name: "message_creation")
-  MessageCreation messageCreation;
+  @JsonKey(name: "message_creation", defaultValue: RunStepMessageCreation.emptyInstance)
+  final RunStepMessageCreation messageCreation;
 
 
-  factory StepDetails.fromJson(Map<String, dynamic> json) => _$StepDetailsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$StepDetailsToJson(this);
+  factory RunStepStepDetails.fromJson(Map<String, dynamic> json) => _$RunStepStepDetailsFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$RunStepStepDetailsToJson(this);
+  
+  factory RunStepStepDetails.emptyInstance() => RunStepStepDetails(type: "", messageCreation: RunStepMessageCreation.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
 

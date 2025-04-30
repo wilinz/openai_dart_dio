@@ -18,13 +18,13 @@ class ResponseFormatType {
 @JsonSerializable(explicitToJson: true)
 class FunctionDefinition with EquatableMixin {
   @JsonKey(name: 'description', includeIfNull: false)
-  String? description;
+  final String? description;
 
   @JsonKey(name: 'name', includeIfNull: false)
-  String name;
+  final String name;
 
   @JsonKey(name: 'parameters', includeIfNull: false)
-  Map<String, dynamic> parameters;
+  final Map<String, dynamic> parameters;
 
   FunctionDefinition(
       {required this.name, this.description, required this.parameters});
@@ -42,11 +42,12 @@ class FunctionDefinition with EquatableMixin {
 @autoequal
 @JsonSerializable(explicitToJson: true)
 class Tool with EquatableMixin {
+
   @JsonKey(name: 'type', includeIfNull: false)
-  String type;
+  final String type;
 
   @JsonKey(name: 'function', includeIfNull: false)
-  FunctionDefinition function;
+  final FunctionDefinition function;
 
   Tool({required this.type, required this.function});
 
@@ -63,7 +64,7 @@ class Tool with EquatableMixin {
 @JsonSerializable(explicitToJson: true)
 class ToolChoiceFunction with EquatableMixin {
   @JsonKey(name: 'name', includeIfNull: false)
-  String name;
+  final String name;
 
   ToolChoiceFunction({required this.name});
 
@@ -81,10 +82,10 @@ class ToolChoiceFunction with EquatableMixin {
 @JsonSerializable(explicitToJson: true)
 class ToolChoice with EquatableMixin {
   @JsonKey(name: 'type', includeIfNull: false)
-  String? type;
+  final String? type;
 
   @JsonKey(name: 'function', includeIfNull: false)
-  ToolChoiceFunction? function;
+  final ToolChoiceFunction? function;
 
   ToolChoice({this.type, this.function});
 
@@ -103,7 +104,7 @@ class ToolChoice with EquatableMixin {
 class ResponseFormat with EquatableMixin {
   /// Must be one of text or json_object.
   @JsonKey(name: "type", includeIfNull: false)
-  String type;
+  final String type;
 
   ResponseFormat({required this.type});
 

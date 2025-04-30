@@ -6,12 +6,6 @@ part of 'function_call.dart';
 // AutoequalGenerator
 // **************************************************************************
 
-mixin _$FunctionCallAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$FunctionCallAutoequal(this as FunctionCall)._$props;
-}
-
 extension _$FunctionCallAutoequal on FunctionCall {
   List<Object?> get _$props => [name, arguments];
 }
@@ -32,8 +26,8 @@ abstract class _$FunctionCallCWProxy {
   /// FunctionCall(...).copyWith(id: 12, name: "My name")
   /// ````
   FunctionCall call({
-    String? name,
-    String? arguments,
+    String name,
+    String arguments,
   });
 }
 
@@ -62,11 +56,11 @@ class _$FunctionCallCWProxyImpl implements _$FunctionCallCWProxy {
     Object? arguments = const $CopyWithPlaceholder(),
   }) {
     return FunctionCall(
-      name: name == const $CopyWithPlaceholder() || name == null
+      name: name == const $CopyWithPlaceholder()
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
-      arguments: arguments == const $CopyWithPlaceholder() || arguments == null
+      arguments: arguments == const $CopyWithPlaceholder()
           ? _value.arguments
           // ignore: cast_nullable_to_non_nullable
           : arguments as String,

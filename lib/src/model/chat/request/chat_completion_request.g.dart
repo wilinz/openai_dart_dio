@@ -6,58 +6,24 @@ part of 'chat_completion_request.dart';
 // AutoequalGenerator
 // **************************************************************************
 
-mixin _$FunctionDefinitionAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$FunctionDefinitionAutoequal(this as FunctionDefinition)._$props;
-}
-
 extension _$FunctionDefinitionAutoequal on FunctionDefinition {
   List<Object?> get _$props => [description, name, parameters];
-}
-
-mixin _$ToolAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props => _$ToolAutoequal(this as Tool)._$props;
 }
 
 extension _$ToolAutoequal on Tool {
   List<Object?> get _$props => [type, function];
 }
 
-mixin _$ToolChoiceFunctionAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ToolChoiceFunctionAutoequal(this as ToolChoiceFunction)._$props;
-}
-
 extension _$ToolChoiceFunctionAutoequal on ToolChoiceFunction {
   List<Object?> get _$props => [name];
-}
-
-mixin _$ToolChoiceAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props => _$ToolChoiceAutoequal(this as ToolChoice)._$props;
 }
 
 extension _$ToolChoiceAutoequal on ToolChoice {
   List<Object?> get _$props => [type, function];
 }
 
-mixin _$ResponseFormatAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ResponseFormatAutoequal(this as ResponseFormat)._$props;
-}
-
 extension _$ResponseFormatAutoequal on ResponseFormat {
   List<Object?> get _$props => [type];
-}
-
-mixin _$ChatCompletionRequestAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ChatCompletionRequestAutoequal(this as ChatCompletionRequest)._$props;
 }
 
 extension _$ChatCompletionRequestAutoequal on ChatCompletionRequest {
@@ -77,7 +43,7 @@ extension _$ChatCompletionRequestAutoequal on ChatCompletionRequest {
         topP,
         tools,
         toolChoice,
-        user
+        user,
       ];
 }
 
@@ -99,9 +65,9 @@ abstract class _$FunctionDefinitionCWProxy {
   /// FunctionDefinition(...).copyWith(id: 12, name: "My name")
   /// ````
   FunctionDefinition call({
-    String? name,
+    String name,
     String? description,
-    Map<String, dynamic>? parameters,
+    Map<String, dynamic> parameters,
   });
 }
 
@@ -136,7 +102,7 @@ class _$FunctionDefinitionCWProxyImpl implements _$FunctionDefinitionCWProxy {
     Object? parameters = const $CopyWithPlaceholder(),
   }) {
     return FunctionDefinition(
-      name: name == const $CopyWithPlaceholder() || name == null
+      name: name == const $CopyWithPlaceholder()
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
@@ -144,11 +110,10 @@ class _$FunctionDefinitionCWProxyImpl implements _$FunctionDefinitionCWProxy {
           ? _value.description
           // ignore: cast_nullable_to_non_nullable
           : description as String?,
-      parameters:
-          parameters == const $CopyWithPlaceholder() || parameters == null
-              ? _value.parameters
-              // ignore: cast_nullable_to_non_nullable
-              : parameters as Map<String, dynamic>,
+      parameters: parameters == const $CopyWithPlaceholder()
+          ? _value.parameters
+          // ignore: cast_nullable_to_non_nullable
+          : parameters as Map<String, dynamic>,
     );
   }
 }
@@ -172,8 +137,8 @@ abstract class _$ToolCWProxy {
   /// Tool(...).copyWith(id: 12, name: "My name")
   /// ````
   Tool call({
-    String? type,
-    FunctionDefinition? function,
+    String type,
+    FunctionDefinition function,
   });
 }
 
@@ -202,11 +167,11 @@ class _$ToolCWProxyImpl implements _$ToolCWProxy {
     Object? function = const $CopyWithPlaceholder(),
   }) {
     return Tool(
-      type: type == const $CopyWithPlaceholder() || type == null
+      type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String,
-      function: function == const $CopyWithPlaceholder() || function == null
+      function: function == const $CopyWithPlaceholder()
           ? _value.function
           // ignore: cast_nullable_to_non_nullable
           : function as FunctionDefinition,
@@ -230,7 +195,7 @@ abstract class _$ToolChoiceFunctionCWProxy {
   /// ToolChoiceFunction(...).copyWith(id: 12, name: "My name")
   /// ````
   ToolChoiceFunction call({
-    String? name,
+    String name,
   });
 }
 
@@ -255,7 +220,7 @@ class _$ToolChoiceFunctionCWProxyImpl implements _$ToolChoiceFunctionCWProxy {
     Object? name = const $CopyWithPlaceholder(),
   }) {
     return ToolChoiceFunction(
-      name: name == const $CopyWithPlaceholder() || name == null
+      name: name == const $CopyWithPlaceholder()
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String,
@@ -340,7 +305,7 @@ abstract class _$ResponseFormatCWProxy {
   /// ResponseFormat(...).copyWith(id: 12, name: "My name")
   /// ````
   ResponseFormat call({
-    String? type,
+    String type,
   });
 }
 
@@ -365,7 +330,7 @@ class _$ResponseFormatCWProxyImpl implements _$ResponseFormatCWProxy {
     Object? type = const $CopyWithPlaceholder(),
   }) {
     return ResponseFormat(
-      type: type == const $CopyWithPlaceholder() || type == null
+      type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String,
@@ -419,8 +384,8 @@ abstract class _$ChatCompletionRequestCWProxy {
   /// ChatCompletionRequest(...).copyWith(id: 12, name: "My name")
   /// ````
   ChatCompletionRequest call({
-    List<ChatMessage>? messages,
-    String? model,
+    List<ChatMessage> messages,
+    String model,
     double? frequencyPenalty,
     Map<String, dynamic>? logitBias,
     int? maxTokens,
@@ -527,11 +492,11 @@ class _$ChatCompletionRequestCWProxyImpl
     Object? user = const $CopyWithPlaceholder(),
   }) {
     return ChatCompletionRequest(
-      messages: messages == const $CopyWithPlaceholder() || messages == null
+      messages: messages == const $CopyWithPlaceholder()
           ? _value.messages
           // ignore: cast_nullable_to_non_nullable
           : messages as List<ChatMessage>,
-      model: model == const $CopyWithPlaceholder() || model == null
+      model: model == const $CopyWithPlaceholder()
           ? _value.model
           // ignore: cast_nullable_to_non_nullable
           : model as String,
@@ -563,7 +528,7 @@ class _$ChatCompletionRequestCWProxyImpl
           ? _value.seed
           // ignore: cast_nullable_to_non_nullable
           : seed as int?,
-      stop: stop == const $CopyWithPlaceholder() || stop == null
+      stop: stop == const $CopyWithPlaceholder()
           ? _value.stop
           // ignore: cast_nullable_to_non_nullable
           : stop as dynamic,
@@ -583,11 +548,10 @@ class _$ChatCompletionRequestCWProxyImpl
           ? _value.tools
           // ignore: cast_nullable_to_non_nullable
           : tools as List<Tool>?,
-      toolChoice:
-          toolChoice == const $CopyWithPlaceholder() || toolChoice == null
-              ? _value.toolChoice
-              // ignore: cast_nullable_to_non_nullable
-              : toolChoice as dynamic,
+      toolChoice: toolChoice == const $CopyWithPlaceholder()
+          ? _value.toolChoice
+          // ignore: cast_nullable_to_non_nullable
+          : toolChoice as dynamic,
       user: user == const $CopyWithPlaceholder()
           ? _value.user
           // ignore: cast_nullable_to_non_nullable
@@ -614,20 +578,12 @@ FunctionDefinition _$FunctionDefinitionFromJson(Map<String, dynamic> json) =>
       parameters: json['parameters'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$FunctionDefinitionToJson(FunctionDefinition instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('description', instance.description);
-  val['name'] = instance.name;
-  val['parameters'] = instance.parameters;
-  return val;
-}
+Map<String, dynamic> _$FunctionDefinitionToJson(FunctionDefinition instance) =>
+    <String, dynamic>{
+      if (instance.description case final value?) 'description': value,
+      'name': instance.name,
+      'parameters': instance.parameters,
+    };
 
 Tool _$ToolFromJson(Map<String, dynamic> json) => Tool(
       type: json['type'] as String,
@@ -658,19 +614,11 @@ ToolChoice _$ToolChoiceFromJson(Map<String, dynamic> json) => ToolChoice(
               json['function'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$ToolChoiceToJson(ToolChoice instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('type', instance.type);
-  writeNotNull('function', instance.function?.toJson());
-  return val;
-}
+Map<String, dynamic> _$ToolChoiceToJson(ToolChoice instance) =>
+    <String, dynamic>{
+      if (instance.type case final value?) 'type': value,
+      if (instance.function?.toJson() case final value?) 'function': value,
+    };
 
 ResponseFormat _$ResponseFormatFromJson(Map<String, dynamic> json) =>
     ResponseFormat(
@@ -711,31 +659,25 @@ ChatCompletionRequest _$ChatCompletionRequestFromJson(
     );
 
 Map<String, dynamic> _$ChatCompletionRequestToJson(
-    ChatCompletionRequest instance) {
-  final val = <String, dynamic>{
-    'messages': instance.messages.map((e) => e.toJson()).toList(),
-    'model': instance.model,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('frequency_penalty', instance.frequencyPenalty);
-  writeNotNull('logit_bias', instance.logitBias);
-  writeNotNull('max_tokens', instance.maxTokens);
-  writeNotNull('n', instance.n);
-  writeNotNull('presence_penalty', instance.presencePenalty);
-  writeNotNull('response_format', instance.responseFormat?.toJson());
-  writeNotNull('seed', instance.seed);
-  writeNotNull('stop', instance.stop);
-  writeNotNull('stream', instance.stream);
-  writeNotNull('temperature', instance.temperature);
-  writeNotNull('top_p', instance.topP);
-  writeNotNull('tools', instance.tools?.map((e) => e.toJson()).toList());
-  writeNotNull('tool_choice', instance.toolChoice);
-  writeNotNull('user', instance.user);
-  return val;
-}
+        ChatCompletionRequest instance) =>
+    <String, dynamic>{
+      'messages': instance.messages.map((e) => e.toJson()).toList(),
+      'model': instance.model,
+      if (instance.frequencyPenalty case final value?)
+        'frequency_penalty': value,
+      if (instance.logitBias case final value?) 'logit_bias': value,
+      if (instance.maxTokens case final value?) 'max_tokens': value,
+      if (instance.n case final value?) 'n': value,
+      if (instance.presencePenalty case final value?) 'presence_penalty': value,
+      if (instance.responseFormat?.toJson() case final value?)
+        'response_format': value,
+      if (instance.seed case final value?) 'seed': value,
+      if (instance.stop case final value?) 'stop': value,
+      if (instance.stream case final value?) 'stream': value,
+      if (instance.temperature case final value?) 'temperature': value,
+      if (instance.topP case final value?) 'top_p': value,
+      if (instance.tools?.map((e) => e.toJson()).toList() case final value?)
+        'tools': value,
+      if (instance.toolChoice case final value?) 'tool_choice': value,
+      if (instance.user case final value?) 'user': value,
+    };

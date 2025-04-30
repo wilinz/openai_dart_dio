@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-library openai_dart_dio;
+library;
 
 export 'src/api/api_client.dart';
 export 'src/api/impl/audio.dart';
@@ -34,6 +34,7 @@ export 'src/model/image/image_generation_request.dart';
 export 'src/model/image/image_response/image_response.dart';
 export 'src/model/image/image_variation_request.dart';
 export 'src/model/message/list_message/list_message.dart';
+export 'src/model/message/list_message_file/list_message_file.dart';
 export 'src/model/message/open_ai_message/open_ai_message.dart';
 export 'src/model/message/open_ai_message_file/open_ai_message_file.dart';
 export 'src/model/model/model_response/model_response.dart';

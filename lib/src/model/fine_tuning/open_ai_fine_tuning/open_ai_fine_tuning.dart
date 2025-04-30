@@ -1,9 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'open_ai_fine_tuning.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class OpenAiFineTuning {
+class OpenAiFineTuning with EquatableMixin {
+
   OpenAiFineTuning(
       {required this.object,
       required this.id,
@@ -20,62 +26,75 @@ class OpenAiFineTuning {
       required this.trainedTokens});
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
   @JsonKey(name: "model", defaultValue: "")
-  String model;
+  final String model;
 
   @JsonKey(name: "created_at", defaultValue: 0)
-  int createdAt;
+  final int createdAt;
 
   @JsonKey(name: "finished_at", defaultValue: 0)
-  int finishedAt;
+  final int finishedAt;
 
   @JsonKey(name: "fine_tuned_model", defaultValue: "")
-  String fineTunedModel;
+  final String fineTunedModel;
 
   @JsonKey(name: "organization_id", defaultValue: "")
-  String organizationId;
+  final String organizationId;
 
   @JsonKey(name: "result_files", defaultValue: [])
-  List<String> resultFiles;
+  final List<String> resultFiles;
 
   @JsonKey(name: "status", defaultValue: "")
-  String status;
+  final String status;
 
   @JsonKey(name: "validation_file")
-  dynamic validationFile;
+  final dynamic validationFile;
 
   @JsonKey(name: "training_file", defaultValue: "")
-  String trainingFile;
+  final String trainingFile;
 
-  @JsonKey(name: "hyperparameters")
-  Hyperparameters hyperparameters;
+  @JsonKey(name: "hyperparameters", defaultValue: OpenAiFineTuningHyperparameters.emptyInstance)
+  final OpenAiFineTuningHyperparameters hyperparameters;
 
   @JsonKey(name: "trained_tokens", defaultValue: 0)
-  int trainedTokens;
+  final int trainedTokens;
 
 
   factory OpenAiFineTuning.fromJson(Map<String, dynamic> json) => _$OpenAiFineTuningFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$OpenAiFineTuningToJson(this);
+  
+  factory OpenAiFineTuning.emptyInstance() => OpenAiFineTuning(object: "", id: "", model: "", createdAt: 0, finishedAt: 0, fineTunedModel: "", organizationId: "", resultFiles: [], status: "", trainingFile: "", hyperparameters: OpenAiFineTuningHyperparameters.emptyInstance(), trainedTokens: 0);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class Hyperparameters {
-  Hyperparameters(
+class OpenAiFineTuningHyperparameters with EquatableMixin {
+
+  OpenAiFineTuningHyperparameters(
       {required this.nEpochs});
 
   @JsonKey(name: "n_epochs", defaultValue: 0)
-  int nEpochs;
+  final int nEpochs;
 
 
-  factory Hyperparameters.fromJson(Map<String, dynamic> json) => _$HyperparametersFromJson(json);
-
-  Map<String, dynamic> toJson() => _$HyperparametersToJson(this);
+  factory OpenAiFineTuningHyperparameters.fromJson(Map<String, dynamic> json) => _$OpenAiFineTuningHyperparametersFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$OpenAiFineTuningHyperparametersToJson(this);
+  
+  factory OpenAiFineTuningHyperparameters.emptyInstance() => OpenAiFineTuningHyperparameters(nEpochs: 0);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
 

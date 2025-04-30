@@ -3,14 +3,14 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:autoequal/autoequal.dart';
 
-part 'list_assistant_files.g.dart';
+part 'list_message_file.g.dart';
 
 @CopyWith()
 @Autoequal()
 @JsonSerializable(explicitToJson: true)
-class ListAssistantFiles with EquatableMixin {
+class ListMessageFile with EquatableMixin {
 
-  ListAssistantFiles(
+  ListMessageFile(
       {required this.object,
       required this.data,
       required this.firstId,
@@ -21,7 +21,7 @@ class ListAssistantFiles with EquatableMixin {
   final String object;
 
   @JsonKey(name: "data", defaultValue: [])
-  final List<ListAssistantFilesDataItem> data;
+  final List<ListMessageFileDataItem> data;
 
   @JsonKey(name: "first_id", defaultValue: "")
   final String firstId;
@@ -33,11 +33,11 @@ class ListAssistantFiles with EquatableMixin {
   final bool hasMore;
 
 
-  factory ListAssistantFiles.fromJson(Map<String, dynamic> json) => _$ListAssistantFilesFromJson(json);
+  factory ListMessageFile.fromJson(Map<String, dynamic> json) => _$ListMessageFileFromJson(json);
   
-  Map<String, dynamic> toJson() => _$ListAssistantFilesToJson(this);
+  Map<String, dynamic> toJson() => _$ListMessageFileToJson(this);
   
-  factory ListAssistantFiles.emptyInstance() => ListAssistantFiles(object: "", data: [], firstId: "", lastId: "", hasMore: false);
+  factory ListMessageFile.emptyInstance() => ListMessageFile(object: "", data: [], firstId: "", lastId: "", hasMore: false);
   
   @override
   List<Object?> get props => _$props;
@@ -46,13 +46,13 @@ class ListAssistantFiles with EquatableMixin {
 @CopyWith()
 @Autoequal()
 @JsonSerializable(explicitToJson: true)
-class ListAssistantFilesDataItem with EquatableMixin {
+class ListMessageFileDataItem with EquatableMixin {
 
-  ListAssistantFilesDataItem(
+  ListMessageFileDataItem(
       {required this.id,
       required this.object,
       this.createdAt,
-      this.assistantId});
+      this.messageId});
 
   @JsonKey(name: "id", defaultValue: "")
   final String id;
@@ -63,15 +63,15 @@ class ListAssistantFilesDataItem with EquatableMixin {
   @JsonKey(name: "created_at")
   final int? createdAt;
 
-  @JsonKey(name: "assistant_id")
-  final String? assistantId;
+  @JsonKey(name: "message_id")
+  final String? messageId;
 
 
-  factory ListAssistantFilesDataItem.fromJson(Map<String, dynamic> json) => _$ListAssistantFilesDataItemFromJson(json);
+  factory ListMessageFileDataItem.fromJson(Map<String, dynamic> json) => _$ListMessageFileDataItemFromJson(json);
   
-  Map<String, dynamic> toJson() => _$ListAssistantFilesDataItemToJson(this);
+  Map<String, dynamic> toJson() => _$ListMessageFileDataItemToJson(this);
   
-  factory ListAssistantFilesDataItem.emptyInstance() => ListAssistantFilesDataItem(id: "", object: "");
+  factory ListMessageFileDataItem.emptyInstance() => ListMessageFileDataItem(id: "", object: "");
   
   @override
   List<Object?> get props => _$props;

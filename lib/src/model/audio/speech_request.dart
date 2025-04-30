@@ -1,9 +1,14 @@
+import 'package:autoequal/autoequal.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'speech_request.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class SpeechRequest {
+class SpeechRequest with EquatableMixin {
   @JsonKey(name: 'model', includeIfNull: false)
   final String model;
 
@@ -14,7 +19,7 @@ class SpeechRequest {
   final String voice;
 
   @JsonKey(name: 'instructions', includeIfNull: false)
-  String? instructions;
+  final String? instructions;
 
   @JsonKey(name: 'response_format', includeIfNull: false)
   final String? responseFormat;
@@ -37,26 +42,5 @@ class SpeechRequest {
   Map<String, dynamic> toJson() => _$SpeechRequestToJson(this);
 
   @override
-  String toString() => 'SpeechRequest{model: $model, input: $input, voice: $voice, responseFormat: $responseFormat, speed: $speed, instructions: $instructions}';
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is SpeechRequest &&
-          runtimeType == other.runtimeType &&
-          model == other.model &&
-          input == other.input &&
-          voice == other.voice &&
-          instructions == other.instructions &&
-          responseFormat == other.responseFormat &&
-          speed == other.speed;
-
-  @override
-  int get hashCode =>
-      model.hashCode ^
-      input.hashCode ^
-      voice.hashCode ^
-      instructions.hashCode ^
-      responseFormat.hashCode ^
-      speed.hashCode;
+  List<Object?> get props => _$props;
 }

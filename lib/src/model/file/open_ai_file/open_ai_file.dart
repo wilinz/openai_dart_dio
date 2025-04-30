@@ -1,9 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'open_ai_file.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class OpenAiFile {
+class OpenAiFile with EquatableMixin {
+
   OpenAiFile(
       {required this.id,
       required this.object,
@@ -13,27 +19,32 @@ class OpenAiFile {
       required this.purpose});
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "bytes", defaultValue: 0)
-  int bytes;
+  final int bytes;
 
   @JsonKey(name: "created_at", defaultValue: 0)
-  int createdAt;
+  final int createdAt;
 
   @JsonKey(name: "filename", defaultValue: "")
-  String filename;
+  final String filename;
 
   @JsonKey(name: "purpose", defaultValue: "")
-  String purpose;
+  final String purpose;
 
 
   factory OpenAiFile.fromJson(Map<String, dynamic> json) => _$OpenAiFileFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$OpenAiFileToJson(this);
+  
+  factory OpenAiFile.emptyInstance() => OpenAiFile(id: "", object: "", bytes: 0, createdAt: 0, filename: "", purpose: "");
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
 

@@ -1,65 +1,84 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'list_fine_tuning_event.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class ListFineTuningEvent {
+class ListFineTuningEvent with EquatableMixin {
+
   ListFineTuningEvent(
       {required this.object,
       required this.data,
       required this.hasMore});
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "data", defaultValue: [])
-  List<FineTuningEvent> data;
+  final List<ListFineTuningEventDataItem> data;
 
   @JsonKey(name: "has_more", defaultValue: false)
-  bool hasMore;
+  final bool hasMore;
 
 
   factory ListFineTuningEvent.fromJson(Map<String, dynamic> json) => _$ListFineTuningEventFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$ListFineTuningEventToJson(this);
+  
+  factory ListFineTuningEvent.emptyInstance() => ListFineTuningEvent(object: "", data: [], hasMore: false);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class FineTuningEvent {
-  FineTuningEvent(
+class ListFineTuningEventDataItem with EquatableMixin {
+
+  ListFineTuningEventDataItem(
       {required this.object,
       required this.id,
-      required this.createdAt,
+      this.createdAt,
       required this.level,
       required this.message,
       this.data,
       required this.type});
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
-  @JsonKey(name: "created_at", defaultValue: 0)
-  int createdAt;
+  @JsonKey(name: "created_at")
+  final int? createdAt;
 
   @JsonKey(name: "level", defaultValue: "")
-  String level;
+  final String level;
 
   @JsonKey(name: "message", defaultValue: "")
-  String message;
+  final String message;
 
   @JsonKey(name: "data")
-  dynamic data;
+  final dynamic data;
 
   @JsonKey(name: "type", defaultValue: "")
-  String type;
+  final String type;
 
 
-  factory FineTuningEvent.fromJson(Map<String, dynamic> json) => _$FineTuningEventFromJson(json);
-
-  Map<String, dynamic> toJson() => _$FineTuningEventToJson(this);
+  factory ListFineTuningEventDataItem.fromJson(Map<String, dynamic> json) => _$ListFineTuningEventDataItemFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$ListFineTuningEventDataItemToJson(this);
+  
+  factory ListFineTuningEventDataItem.emptyInstance() => ListFineTuningEventDataItem(object: "", id: "", level: "", message: "", type: "");
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
 

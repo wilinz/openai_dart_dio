@@ -1,10 +1,15 @@
+import 'package:autoequal/autoequal.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:dio/dio.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'image_edit_request.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: false)
-class ImageEditRequest {
+class ImageEditRequest  with EquatableMixin {
   @JsonKey(
     name: 'image',
     includeToJson: false,
@@ -44,4 +49,7 @@ class ImageEditRequest {
   Map<String, dynamic> toMap() => _$ImageEditRequestToJson(this)
     ..['image'] = image
     ..['mask'] = mask;
+
+  @override
+  List<Object?> get props => _$props;
 }

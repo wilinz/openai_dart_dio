@@ -6,49 +6,28 @@ part of 'chat_completion.dart';
 // AutoequalGenerator
 // **************************************************************************
 
-mixin _$ChatCompletionAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ChatCompletionAutoequal(this as ChatCompletion)._$props;
-}
-
 extension _$ChatCompletionAutoequal on ChatCompletion {
-  List<Object?> get _$props =>
-      [id, choices, created, model, systemFingerprint, object, usage];
-}
-
-mixin _$ChatCompletionChoiceAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ChatCompletionChoiceAutoequal(this as ChatCompletionChoice)._$props;
+  List<Object?> get _$props => [
+        id,
+        choices,
+        created,
+        model,
+        systemFingerprint,
+        object,
+        usage,
+      ];
 }
 
 extension _$ChatCompletionChoiceAutoequal on ChatCompletionChoice {
   List<Object?> get _$props => [finishReason, index, message];
 }
 
-mixin _$ChatCompletionMessageAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ChatCompletionMessageAutoequal(this as ChatCompletionMessage)._$props;
-}
-
 extension _$ChatCompletionMessageAutoequal on ChatCompletionMessage {
   List<Object?> get _$props => [content, toolCalls, role];
 }
 
-mixin _$ToolCallAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props => _$ToolCallAutoequal(this as ToolCall)._$props;
-}
-
 extension _$ToolCallAutoequal on ToolCall {
   List<Object?> get _$props => [id, type, function];
-}
-
-mixin _$UsageAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props => _$UsageAutoequal(this as Usage)._$props;
 }
 
 extension _$UsageAutoequal on Usage {
@@ -81,13 +60,13 @@ abstract class _$ChatCompletionCWProxy {
   /// ChatCompletion(...).copyWith(id: 12, name: "My name")
   /// ````
   ChatCompletion call({
-    String? id,
-    List<ChatCompletionChoice>? choices,
-    int? created,
-    String? model,
-    String? systemFingerprint,
-    String? object,
-    Usage? usage,
+    String id,
+    List<ChatCompletionChoice> choices,
+    int created,
+    String model,
+    String systemFingerprint,
+    String object,
+    Usage usage,
   });
 }
 
@@ -138,32 +117,31 @@ class _$ChatCompletionCWProxyImpl implements _$ChatCompletionCWProxy {
     Object? usage = const $CopyWithPlaceholder(),
   }) {
     return ChatCompletion(
-      id: id == const $CopyWithPlaceholder() || id == null
+      id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
-      choices: choices == const $CopyWithPlaceholder() || choices == null
+      choices: choices == const $CopyWithPlaceholder()
           ? _value.choices
           // ignore: cast_nullable_to_non_nullable
           : choices as List<ChatCompletionChoice>,
-      created: created == const $CopyWithPlaceholder() || created == null
+      created: created == const $CopyWithPlaceholder()
           ? _value.created
           // ignore: cast_nullable_to_non_nullable
           : created as int,
-      model: model == const $CopyWithPlaceholder() || model == null
+      model: model == const $CopyWithPlaceholder()
           ? _value.model
           // ignore: cast_nullable_to_non_nullable
           : model as String,
-      systemFingerprint: systemFingerprint == const $CopyWithPlaceholder() ||
-              systemFingerprint == null
+      systemFingerprint: systemFingerprint == const $CopyWithPlaceholder()
           ? _value.systemFingerprint
           // ignore: cast_nullable_to_non_nullable
           : systemFingerprint as String,
-      object: object == const $CopyWithPlaceholder() || object == null
+      object: object == const $CopyWithPlaceholder()
           ? _value.object
           // ignore: cast_nullable_to_non_nullable
           : object as String,
-      usage: usage == const $CopyWithPlaceholder() || usage == null
+      usage: usage == const $CopyWithPlaceholder()
           ? _value.usage
           // ignore: cast_nullable_to_non_nullable
           : usage as Usage,
@@ -191,9 +169,9 @@ abstract class _$ChatCompletionChoiceCWProxy {
   /// ChatCompletionChoice(...).copyWith(id: 12, name: "My name")
   /// ````
   ChatCompletionChoice call({
-    String? finishReason,
-    int? index,
-    ChatCompletionMessage? message,
+    String finishReason,
+    int index,
+    ChatCompletionMessage message,
   });
 }
 
@@ -229,16 +207,15 @@ class _$ChatCompletionChoiceCWProxyImpl
     Object? message = const $CopyWithPlaceholder(),
   }) {
     return ChatCompletionChoice(
-      finishReason:
-          finishReason == const $CopyWithPlaceholder() || finishReason == null
-              ? _value.finishReason
-              // ignore: cast_nullable_to_non_nullable
-              : finishReason as String,
-      index: index == const $CopyWithPlaceholder() || index == null
+      finishReason: finishReason == const $CopyWithPlaceholder()
+          ? _value.finishReason
+          // ignore: cast_nullable_to_non_nullable
+          : finishReason as String,
+      index: index == const $CopyWithPlaceholder()
           ? _value.index
           // ignore: cast_nullable_to_non_nullable
           : index as int,
-      message: message == const $CopyWithPlaceholder() || message == null
+      message: message == const $CopyWithPlaceholder()
           ? _value.message
           // ignore: cast_nullable_to_non_nullable
           : message as ChatCompletionMessage,
@@ -269,7 +246,7 @@ abstract class _$ChatCompletionMessageCWProxy {
   ChatCompletionMessage call({
     String? content,
     List<ToolCall>? toolCalls,
-    String? role,
+    String role,
   });
 }
 
@@ -312,7 +289,7 @@ class _$ChatCompletionMessageCWProxyImpl
           ? _value.toolCalls
           // ignore: cast_nullable_to_non_nullable
           : toolCalls as List<ToolCall>?,
-      role: role == const $CopyWithPlaceholder() || role == null
+      role: role == const $CopyWithPlaceholder()
           ? _value.role
           // ignore: cast_nullable_to_non_nullable
           : role as String,
@@ -341,9 +318,9 @@ abstract class _$ToolCallCWProxy {
   /// ToolCall(...).copyWith(id: 12, name: "My name")
   /// ````
   ToolCall call({
-    String? id,
-    String? type,
-    FunctionCall? function,
+    String id,
+    String type,
+    FunctionCall function,
   });
 }
 
@@ -376,15 +353,15 @@ class _$ToolCallCWProxyImpl implements _$ToolCallCWProxy {
     Object? function = const $CopyWithPlaceholder(),
   }) {
     return ToolCall(
-      id: id == const $CopyWithPlaceholder() || id == null
+      id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
-      type: type == const $CopyWithPlaceholder() || type == null
+      type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String,
-      function: function == const $CopyWithPlaceholder() || function == null
+      function: function == const $CopyWithPlaceholder()
           ? _value.function
           // ignore: cast_nullable_to_non_nullable
           : function as FunctionCall,
@@ -412,9 +389,9 @@ abstract class _$UsageCWProxy {
   /// Usage(...).copyWith(id: 12, name: "My name")
   /// ````
   Usage call({
-    int? completionTokens,
-    int? promptTokens,
-    int? totalTokens,
+    int completionTokens,
+    int promptTokens,
+    int totalTokens,
   });
 }
 
@@ -448,21 +425,18 @@ class _$UsageCWProxyImpl implements _$UsageCWProxy {
     Object? totalTokens = const $CopyWithPlaceholder(),
   }) {
     return Usage(
-      completionTokens: completionTokens == const $CopyWithPlaceholder() ||
-              completionTokens == null
+      completionTokens: completionTokens == const $CopyWithPlaceholder()
           ? _value.completionTokens
           // ignore: cast_nullable_to_non_nullable
           : completionTokens as int,
-      promptTokens:
-          promptTokens == const $CopyWithPlaceholder() || promptTokens == null
-              ? _value.promptTokens
-              // ignore: cast_nullable_to_non_nullable
-              : promptTokens as int,
-      totalTokens:
-          totalTokens == const $CopyWithPlaceholder() || totalTokens == null
-              ? _value.totalTokens
-              // ignore: cast_nullable_to_non_nullable
-              : totalTokens as int,
+      promptTokens: promptTokens == const $CopyWithPlaceholder()
+          ? _value.promptTokens
+          // ignore: cast_nullable_to_non_nullable
+          : promptTokens as int,
+      totalTokens: totalTokens == const $CopyWithPlaceholder()
+          ? _value.totalTokens
+          // ignore: cast_nullable_to_non_nullable
+          : totalTokens as int,
     );
   }
 }
@@ -531,21 +505,13 @@ ChatCompletionMessage _$ChatCompletionMessageFromJson(
     );
 
 Map<String, dynamic> _$ChatCompletionMessageToJson(
-    ChatCompletionMessage instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('content', instance.content);
-  writeNotNull(
-      'tool_calls', instance.toolCalls?.map((e) => e.toJson()).toList());
-  val['role'] = instance.role;
-  return val;
-}
+        ChatCompletionMessage instance) =>
+    <String, dynamic>{
+      if (instance.content case final value?) 'content': value,
+      if (instance.toolCalls?.map((e) => e.toJson()).toList() case final value?)
+        'tool_calls': value,
+      'role': instance.role,
+    };
 
 ToolCall _$ToolCallFromJson(Map<String, dynamic> json) => ToolCall(
       id: json['id'] as String? ?? '',

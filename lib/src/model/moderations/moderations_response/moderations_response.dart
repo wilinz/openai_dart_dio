@@ -1,32 +1,46 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'moderations_response.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class ModerationsResponse {
+class ModerationsResponse with EquatableMixin {
+
   ModerationsResponse(
       {required this.id,
       required this.model,
       required this.results});
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
   @JsonKey(name: "model", defaultValue: "")
-  String model;
+  final String model;
 
   @JsonKey(name: "results", defaultValue: [])
-  List<Results> results;
+  final List<ModerationsResultsItem> results;
 
 
   factory ModerationsResponse.fromJson(Map<String, dynamic> json) => _$ModerationsResponseFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$ModerationsResponseToJson(this);
+  
+  factory ModerationsResponse.emptyInstance() => ModerationsResponse(id: "", model: "", results: []);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class Categories {
-  Categories(
+class ModerationsCategories with EquatableMixin {
+
+  ModerationsCategories(
       {required this.sexual,
       required this.hate,
       required this.harassment,
@@ -40,47 +54,55 @@ class Categories {
       required this.violence});
 
   @JsonKey(name: "sexual", defaultValue: false)
-  bool sexual;
+  final bool sexual;
 
   @JsonKey(name: "hate", defaultValue: false)
-  bool hate;
+  final bool hate;
 
   @JsonKey(name: "harassment", defaultValue: false)
-  bool harassment;
+  final bool harassment;
 
   @JsonKey(name: "self-harm", defaultValue: false)
-  bool selfHarm;
+  final bool selfHarm;
 
   @JsonKey(name: "sexual/minors", defaultValue: false)
-  bool sexualMinors;
+  final bool sexualMinors;
 
   @JsonKey(name: "hate/threatening", defaultValue: false)
-  bool hateThreatening;
+  final bool hateThreatening;
 
   @JsonKey(name: "violence/graphic", defaultValue: false)
-  bool violenceGraphic;
+  final bool violenceGraphic;
 
   @JsonKey(name: "self-harm/intent", defaultValue: false)
-  bool selfHarmIntent;
+  final bool selfHarmIntent;
 
   @JsonKey(name: "self-harm/instructions", defaultValue: false)
-  bool selfHarmInstructions;
+  final bool selfHarmInstructions;
 
   @JsonKey(name: "harassment/threatening", defaultValue: false)
-  bool harassmentThreatening;
+  final bool harassmentThreatening;
 
   @JsonKey(name: "violence", defaultValue: false)
-  bool violence;
+  final bool violence;
 
 
-  factory Categories.fromJson(Map<String, dynamic> json) => _$CategoriesFromJson(json);
-
-  Map<String, dynamic> toJson() => _$CategoriesToJson(this);
+  factory ModerationsCategories.fromJson(Map<String, dynamic> json) => _$ModerationsCategoriesFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$ModerationsCategoriesToJson(this);
+  
+  factory ModerationsCategories.emptyInstance() => ModerationsCategories(sexual: false, hate: false, harassment: false, selfHarm: false, sexualMinors: false, hateThreatening: false, violenceGraphic: false, selfHarmIntent: false, selfHarmInstructions: false, harassmentThreatening: false, violence: false);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class CategoryScores {
-  CategoryScores(
+class ModerationsCategoryScores with EquatableMixin {
+
+  ModerationsCategoryScores(
       {required this.sexual,
       required this.hate,
       required this.harassment,
@@ -94,64 +116,77 @@ class CategoryScores {
       required this.violence});
 
   @JsonKey(name: "sexual", defaultValue: 0.0)
-  double sexual;
+  final double sexual;
 
   @JsonKey(name: "hate", defaultValue: 0.0)
-  double hate;
+  final double hate;
 
   @JsonKey(name: "harassment", defaultValue: 0.0)
-  double harassment;
+  final double harassment;
 
   @JsonKey(name: "self-harm", defaultValue: 0.0)
-  double selfHarm;
+  final double selfHarm;
 
   @JsonKey(name: "sexual/minors", defaultValue: 0.0)
-  double sexualMinors;
+  final double sexualMinors;
 
   @JsonKey(name: "hate/threatening", defaultValue: 0.0)
-  double hateThreatening;
+  final double hateThreatening;
 
   @JsonKey(name: "violence/graphic", defaultValue: 0.0)
-  double violenceGraphic;
+  final double violenceGraphic;
 
   @JsonKey(name: "self-harm/intent", defaultValue: 0.0)
-  double selfHarmIntent;
+  final double selfHarmIntent;
 
   @JsonKey(name: "self-harm/instructions", defaultValue: 0.0)
-  double selfHarmInstructions;
+  final double selfHarmInstructions;
 
   @JsonKey(name: "harassment/threatening", defaultValue: 0.0)
-  double harassmentThreatening;
+  final double harassmentThreatening;
 
   @JsonKey(name: "violence", defaultValue: 0.0)
-  double violence;
+  final double violence;
 
 
-  factory CategoryScores.fromJson(Map<String, dynamic> json) => _$CategoryScoresFromJson(json);
-
-  Map<String, dynamic> toJson() => _$CategoryScoresToJson(this);
+  factory ModerationsCategoryScores.fromJson(Map<String, dynamic> json) => _$ModerationsCategoryScoresFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$ModerationsCategoryScoresToJson(this);
+  
+  factory ModerationsCategoryScores.emptyInstance() => ModerationsCategoryScores(sexual: 0, hate: 0, harassment: 0, selfHarm: 0, sexualMinors: 0, hateThreatening: 0, violenceGraphic: 0, selfHarmIntent: 0, selfHarmInstructions: 0, harassmentThreatening: 0, violence: 0);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class Results {
-  Results(
+class ModerationsResultsItem with EquatableMixin {
+
+  ModerationsResultsItem(
       {required this.flagged,
       required this.categories,
-      required this.categoryScores});
+      this.categoryScores});
 
   @JsonKey(name: "flagged", defaultValue: false)
-  bool flagged;
+  final bool flagged;
 
-  @JsonKey(name: "categories")
-  Categories categories;
+  @JsonKey(name: "categories", defaultValue: ModerationsCategories.emptyInstance)
+  final ModerationsCategories categories;
 
   @JsonKey(name: "category_scores")
-  CategoryScores categoryScores;
+  final ModerationsCategoryScores? categoryScores;
 
 
-  factory Results.fromJson(Map<String, dynamic> json) => _$ResultsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ResultsToJson(this);
+  factory ModerationsResultsItem.fromJson(Map<String, dynamic> json) => _$ModerationsResultsItemFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$ModerationsResultsItemToJson(this);
+  
+  factory ModerationsResultsItem.emptyInstance() => ModerationsResultsItem(flagged: false, categories: ModerationsCategories.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
 

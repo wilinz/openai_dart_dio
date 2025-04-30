@@ -6,43 +6,23 @@ part of 'chat_completion_chunk.dart';
 // AutoequalGenerator
 // **************************************************************************
 
-mixin _$ChatCompletionChunkAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ChatCompletionChunkAutoequal(this as ChatCompletionChunk)._$props;
-}
-
 extension _$ChatCompletionChunkAutoequal on ChatCompletionChunk {
-  List<Object?> get _$props =>
-      [id, choices, created, model, systemFingerprint, object];
-}
-
-mixin _$ChatCompletionChoiceChunkAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ChatCompletionChoiceChunkAutoequal(this as ChatCompletionChoiceChunk)
-          ._$props;
+  List<Object?> get _$props => [
+        id,
+        choices,
+        created,
+        model,
+        systemFingerprint,
+        object,
+      ];
 }
 
 extension _$ChatCompletionChoiceChunkAutoequal on ChatCompletionChoiceChunk {
   List<Object?> get _$props => [delta, finishReason, index];
 }
 
-mixin _$ToolCallChunkAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ToolCallChunkAutoequal(this as ToolCallChunk)._$props;
-}
-
 extension _$ToolCallChunkAutoequal on ToolCallChunk {
   List<Object?> get _$props => [index, id, type, function];
-}
-
-mixin _$ChatCompletionDeltaChunkAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ChatCompletionDeltaChunkAutoequal(this as ChatCompletionDeltaChunk)
-          ._$props;
 }
 
 extension _$ChatCompletionDeltaChunkAutoequal on ChatCompletionDeltaChunk {
@@ -73,12 +53,12 @@ abstract class _$ChatCompletionChunkCWProxy {
   /// ChatCompletionChunk(...).copyWith(id: 12, name: "My name")
   /// ````
   ChatCompletionChunk call({
-    String? id,
-    List<ChatCompletionChoiceChunk>? choices,
-    int? created,
-    String? model,
-    String? systemFingerprint,
-    String? object,
+    String id,
+    List<ChatCompletionChoiceChunk> choices,
+    int created,
+    String model,
+    String systemFingerprint,
+    String object,
   });
 }
 
@@ -125,28 +105,27 @@ class _$ChatCompletionChunkCWProxyImpl implements _$ChatCompletionChunkCWProxy {
     Object? object = const $CopyWithPlaceholder(),
   }) {
     return ChatCompletionChunk(
-      id: id == const $CopyWithPlaceholder() || id == null
+      id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
-      choices: choices == const $CopyWithPlaceholder() || choices == null
+      choices: choices == const $CopyWithPlaceholder()
           ? _value.choices
           // ignore: cast_nullable_to_non_nullable
           : choices as List<ChatCompletionChoiceChunk>,
-      created: created == const $CopyWithPlaceholder() || created == null
+      created: created == const $CopyWithPlaceholder()
           ? _value.created
           // ignore: cast_nullable_to_non_nullable
           : created as int,
-      model: model == const $CopyWithPlaceholder() || model == null
+      model: model == const $CopyWithPlaceholder()
           ? _value.model
           // ignore: cast_nullable_to_non_nullable
           : model as String,
-      systemFingerprint: systemFingerprint == const $CopyWithPlaceholder() ||
-              systemFingerprint == null
+      systemFingerprint: systemFingerprint == const $CopyWithPlaceholder()
           ? _value.systemFingerprint
           // ignore: cast_nullable_to_non_nullable
           : systemFingerprint as String,
-      object: object == const $CopyWithPlaceholder() || object == null
+      object: object == const $CopyWithPlaceholder()
           ? _value.object
           // ignore: cast_nullable_to_non_nullable
           : object as String,
@@ -175,9 +154,9 @@ abstract class _$ChatCompletionChoiceChunkCWProxy {
   /// ChatCompletionChoiceChunk(...).copyWith(id: 12, name: "My name")
   /// ````
   ChatCompletionChoiceChunk call({
-    ChatCompletionDeltaChunk? delta,
+    ChatCompletionDeltaChunk delta,
     String? finishReason,
-    int? index,
+    int index,
   });
 }
 
@@ -213,7 +192,7 @@ class _$ChatCompletionChoiceChunkCWProxyImpl
     Object? index = const $CopyWithPlaceholder(),
   }) {
     return ChatCompletionChoiceChunk(
-      delta: delta == const $CopyWithPlaceholder() || delta == null
+      delta: delta == const $CopyWithPlaceholder()
           ? _value.delta
           // ignore: cast_nullable_to_non_nullable
           : delta as ChatCompletionDeltaChunk,
@@ -221,7 +200,7 @@ class _$ChatCompletionChoiceChunkCWProxyImpl
           ? _value.finishReason
           // ignore: cast_nullable_to_non_nullable
           : finishReason as String?,
-      index: index == const $CopyWithPlaceholder() || index == null
+      index: index == const $CopyWithPlaceholder()
           ? _value.index
           // ignore: cast_nullable_to_non_nullable
           : index as int,
@@ -252,10 +231,10 @@ abstract class _$ToolCallChunkCWProxy {
   /// ToolCallChunk(...).copyWith(id: 12, name: "My name")
   /// ````
   ToolCallChunk call({
-    int? index,
-    String? id,
-    String? type,
-    FunctionCall? function,
+    int index,
+    String id,
+    String type,
+    FunctionCall function,
   });
 }
 
@@ -292,19 +271,19 @@ class _$ToolCallChunkCWProxyImpl implements _$ToolCallChunkCWProxy {
     Object? function = const $CopyWithPlaceholder(),
   }) {
     return ToolCallChunk(
-      index: index == const $CopyWithPlaceholder() || index == null
+      index: index == const $CopyWithPlaceholder()
           ? _value.index
           // ignore: cast_nullable_to_non_nullable
           : index as int,
-      id: id == const $CopyWithPlaceholder() || id == null
+      id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
-      type: type == const $CopyWithPlaceholder() || type == null
+      type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String,
-      function: function == const $CopyWithPlaceholder() || function == null
+      function: function == const $CopyWithPlaceholder()
           ? _value.function
           // ignore: cast_nullable_to_non_nullable
           : function as FunctionCall,
@@ -334,7 +313,7 @@ abstract class _$ChatCompletionDeltaChunkCWProxy {
   ChatCompletionDeltaChunk call({
     String? content,
     List<ToolCallChunk>? toolCalls,
-    String? role,
+    String role,
   });
 }
 
@@ -377,7 +356,7 @@ class _$ChatCompletionDeltaChunkCWProxyImpl
           ? _value.toolCalls
           // ignore: cast_nullable_to_non_nullable
           : toolCalls as List<ToolCallChunk>?,
-      role: role == const $CopyWithPlaceholder() || role == null
+      role: role == const $CopyWithPlaceholder()
           ? _value.role
           // ignore: cast_nullable_to_non_nullable
           : role as String,
@@ -431,21 +410,12 @@ ChatCompletionChoiceChunk _$ChatCompletionChoiceChunkFromJson(
     );
 
 Map<String, dynamic> _$ChatCompletionChoiceChunkToJson(
-    ChatCompletionChoiceChunk instance) {
-  final val = <String, dynamic>{
-    'delta': instance.delta.toJson(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('finish_reason', instance.finishReason);
-  val['index'] = instance.index;
-  return val;
-}
+        ChatCompletionChoiceChunk instance) =>
+    <String, dynamic>{
+      'delta': instance.delta.toJson(),
+      if (instance.finishReason case final value?) 'finish_reason': value,
+      'index': instance.index,
+    };
 
 ToolCallChunk _$ToolCallChunkFromJson(Map<String, dynamic> json) =>
     ToolCallChunk(
@@ -474,18 +444,10 @@ ChatCompletionDeltaChunk _$ChatCompletionDeltaChunkFromJson(
     );
 
 Map<String, dynamic> _$ChatCompletionDeltaChunkToJson(
-    ChatCompletionDeltaChunk instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('content', instance.content);
-  writeNotNull(
-      'tool_calls', instance.toolCalls?.map((e) => e.toJson()).toList());
-  val['role'] = instance.role;
-  return val;
-}
+        ChatCompletionDeltaChunk instance) =>
+    <String, dynamic>{
+      if (instance.content case final value?) 'content': value,
+      if (instance.toolCalls?.map((e) => e.toJson()).toList() case final value?)
+        'tool_calls': value,
+      'role': instance.role,
+    };

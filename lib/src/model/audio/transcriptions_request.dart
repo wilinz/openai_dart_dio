@@ -1,10 +1,16 @@
+import 'package:autoequal/autoequal.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:dio/dio.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'transcriptions_request.g.dart';
 
+
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: false)
-class SpeechRecognitionRequest {
+class SpeechRecognitionRequest with EquatableMixin {
   @JsonKey(includeFromJson: false, includeToJson: false, includeIfNull: false)
   final MultipartFile? file;
 
@@ -34,4 +40,7 @@ class SpeechRecognitionRequest {
 
   Map<String, dynamic> toMap() =>
       _$SpeechRecognitionRequestToJson(this)..['file'] = file;
+
+  @override
+  List<Object?> get props => _$props;
 }

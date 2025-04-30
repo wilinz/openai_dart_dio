@@ -22,10 +22,7 @@
 
 ```yaml
 dependencies:
-  # ...
-  openai_dart_dio:
-    git: 
-      url: https://github.com/wilinz/openai-dart-dio
+  openai_dart_dio: ^2.0.0
 ```
 
 ## Usage
@@ -131,7 +128,7 @@ flutter pub run build_runner build
 ```
 
 ```shell
-flutter pub run json5_model --src=lib/src/json --dist=lib/src/model
+flutter pub run json5_model --src=lib/src/json --dist=lib/src/model  --prefix-regexp "(.+?)_response$"
 ```
 
 ```shell

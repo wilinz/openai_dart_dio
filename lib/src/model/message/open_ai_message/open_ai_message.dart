@@ -1,9 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'open_ai_message.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class OpenAiMessage {
+class OpenAiMessage with EquatableMixin {
+
   OpenAiMessage(
       {required this.id,
       required this.object,
@@ -17,76 +23,112 @@ class OpenAiMessage {
       required this.metadata});
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "created_at", defaultValue: 0)
-  int createdAt;
+  final int createdAt;
 
   @JsonKey(name: "thread_id", defaultValue: "")
-  String threadId;
+  final String threadId;
 
   @JsonKey(name: "role", defaultValue: "")
-  String role;
+  final String role;
 
   @JsonKey(name: "content", defaultValue: [])
-  List<OpenAiMessageContent> content;
+  final List<OpenAiMessageContentItem> content;
 
-  @JsonKey(name: "file_ids")
-  List fileIds;
+  @JsonKey(name: "file_ids", defaultValue: [])
+  final List fileIds;
 
   @JsonKey(name: "assistant_id", defaultValue: "")
-  String assistantId;
+  final String assistantId;
 
   @JsonKey(name: "run_id", defaultValue: "")
-  String runId;
+  final String runId;
 
-  @JsonKey(name: "metadata")
-  Map<String, dynamic> metadata;
+  @JsonKey(name: "metadata", defaultValue: OpenAiMessageMetadata.emptyInstance)
+  final OpenAiMessageMetadata metadata;
 
 
   factory OpenAiMessage.fromJson(Map<String, dynamic> json) => _$OpenAiMessageFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$OpenAiMessageToJson(this);
+  
+  factory OpenAiMessage.emptyInstance() => OpenAiMessage(id: "", object: "", createdAt: 0, threadId: "", role: "", content: [], fileIds: [], assistantId: "", runId: "", metadata: OpenAiMessageMetadata.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class OpenAiMessageText {
+class OpenAiMessageText with EquatableMixin {
+
   OpenAiMessageText(
       {required this.value,
       required this.annotations});
 
   @JsonKey(name: "value", defaultValue: "")
-  String value;
+  final String value;
 
-  @JsonKey(name: "annotations")
-  List annotations;
+  @JsonKey(name: "annotations", defaultValue: [])
+  final List annotations;
 
 
   factory OpenAiMessageText.fromJson(Map<String, dynamic> json) => _$OpenAiMessageTextFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$OpenAiMessageTextToJson(this);
+  
+  factory OpenAiMessageText.emptyInstance() => OpenAiMessageText(value: "", annotations: []);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class OpenAiMessageContent {
-  OpenAiMessageContent(
+class OpenAiMessageContentItem with EquatableMixin {
+
+  OpenAiMessageContentItem(
       {required this.type,
       required this.text});
 
   @JsonKey(name: "type", defaultValue: "")
-  String type;
+  final String type;
 
-  @JsonKey(name: "text")
-  OpenAiMessageText text;
+  @JsonKey(name: "text", defaultValue: OpenAiMessageText.emptyInstance)
+  final OpenAiMessageText text;
 
 
-  factory OpenAiMessageContent.fromJson(Map<String, dynamic> json) => _$OpenAiMessageContentFromJson(json);
-
-  Map<String, dynamic> toJson() => _$OpenAiMessageContentToJson(this);
+  factory OpenAiMessageContentItem.fromJson(Map<String, dynamic> json) => _$OpenAiMessageContentItemFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$OpenAiMessageContentItemToJson(this);
+  
+  factory OpenAiMessageContentItem.emptyInstance() => OpenAiMessageContentItem(type: "", text: OpenAiMessageText.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class OpenAiMessageMetadata with EquatableMixin {
+
+  OpenAiMessageMetadata();
+
+  factory OpenAiMessageMetadata.fromJson(Map<String, dynamic> json) => _$OpenAiMessageMetadataFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$OpenAiMessageMetadataToJson(this);
+  
+  factory OpenAiMessageMetadata.emptyInstance() => OpenAiMessageMetadata();
+  
+  @override
+  List<Object?> get props => _$props;
+}
 
 

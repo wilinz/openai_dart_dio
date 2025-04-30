@@ -1,46 +1,64 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'image_response.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class ImageResponse {
+class ImageResponse with EquatableMixin {
+
   ImageResponse(
       {required this.created,
       required this.data});
 
   @JsonKey(name: "created", defaultValue: 0)
-  int created;
+  final int created;
 
   @JsonKey(name: "data", defaultValue: [])
-  List<ImageResponseData> data;
+  final List<ImageDataItem> data;
 
 
   factory ImageResponse.fromJson(Map<String, dynamic> json) => _$ImageResponseFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$ImageResponseToJson(this);
+  
+  factory ImageResponse.emptyInstance() => ImageResponse(created: 0, data: []);
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class ImageResponseData {
-  ImageResponseData(
+class ImageDataItem with EquatableMixin {
+
+  ImageDataItem(
       {required this.url,
-      required this.b64Json,
-      required this.revisedPrompt});
+      this.b64Json,
+      this.revisedPrompt});
 
   @JsonKey(name: "url", defaultValue: "")
-  String url;
+  final String url;
 
-  /// base64 string without data: prefix
-  @JsonKey(name: "b64_json", defaultValue: "")
-  String b64Json;
+  @JsonKey(name: "b64_json")
+  final String? b64Json;
 
-  @JsonKey(name: "revised_prompt", defaultValue: "")
-  String revisedPrompt;
+  @JsonKey(name: "revised_prompt")
+  final String? revisedPrompt;
 
 
-  factory ImageResponseData.fromJson(Map<String, dynamic> json) => _$ImageResponseDataFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ImageResponseDataToJson(this);
+  factory ImageDataItem.fromJson(Map<String, dynamic> json) => _$ImageDataItemFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$ImageDataItemToJson(this);
+  
+  factory ImageDataItem.emptyInstance() => ImageDataItem(url: "");
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
 

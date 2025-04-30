@@ -1,10 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:openai_dart_dio/src/model/chat/request/chat_completion_request.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'submit_tool_outputs.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class SubmitToolOutputs {
+class SubmitToolOutputs with EquatableMixin {
+
   SubmitToolOutputs(
       {required this.id,
       required this.object,
@@ -25,64 +30,245 @@ class SubmitToolOutputs {
       required this.metadata});
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "created_at", defaultValue: 0)
-  int createdAt;
+  final int createdAt;
 
   @JsonKey(name: "assistant_id", defaultValue: "")
-  String assistantId;
+  final String assistantId;
 
   @JsonKey(name: "thread_id", defaultValue: "")
-  String threadId;
+  final String threadId;
 
   @JsonKey(name: "status", defaultValue: "")
-  String status;
+  final String status;
 
   @JsonKey(name: "started_at", defaultValue: 0)
-  int startedAt;
+  final int startedAt;
 
   @JsonKey(name: "expires_at", defaultValue: 0)
-  int expiresAt;
+  final int expiresAt;
 
   @JsonKey(name: "cancelled_at")
-  dynamic cancelledAt;
+  final dynamic cancelledAt;
 
   @JsonKey(name: "failed_at")
-  dynamic failedAt;
+  final dynamic failedAt;
 
   @JsonKey(name: "completed_at")
-  dynamic completedAt;
+  final dynamic completedAt;
 
   @JsonKey(name: "last_error")
-  dynamic lastError;
+  final dynamic lastError;
 
   @JsonKey(name: "model", defaultValue: "")
-  String model;
+  final String model;
 
   @JsonKey(name: "instructions", defaultValue: "")
-  String instructions;
+  final String instructions;
 
   @JsonKey(name: "tools", defaultValue: [])
-  List<Tool> tools;
+  final List<SubmitToolOutputsToolsItem> tools;
 
-  @JsonKey(name: "file_ids")
-  List fileIds;
+  @JsonKey(name: "file_ids", defaultValue: [])
+  final List fileIds;
 
-  @JsonKey(name: "metadata")
-  Map<String, dynamic> metadata;
+  @JsonKey(name: "metadata", defaultValue: SubmitToolOutputsMetadata.emptyInstance)
+  final SubmitToolOutputsMetadata metadata;
 
 
   factory SubmitToolOutputs.fromJson(Map<String, dynamic> json) => _$SubmitToolOutputsFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$SubmitToolOutputsToJson(this);
+  
+  factory SubmitToolOutputs.emptyInstance() => SubmitToolOutputs(id: "", object: "", createdAt: 0, assistantId: "", threadId: "", status: "", startedAt: 0, expiresAt: 0, model: "", instructions: "", tools: [], fileIds: [], metadata: SubmitToolOutputsMetadata.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
+@CopyWith()
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class SubmitToolOutputsLocation with EquatableMixin {
+
+  SubmitToolOutputsLocation(
+      {required this.type,
+      required this.description});
+
+  @JsonKey(name: "type", defaultValue: "")
+  final String type;
+
+  @JsonKey(name: "description", defaultValue: "")
+  final String description;
 
 
+  factory SubmitToolOutputsLocation.fromJson(Map<String, dynamic> json) => _$SubmitToolOutputsLocationFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$SubmitToolOutputsLocationToJson(this);
+  
+  factory SubmitToolOutputsLocation.emptyInstance() => SubmitToolOutputsLocation(type: "", description: "");
+  
+  @override
+  List<Object?> get props => _$props;
+}
 
+@CopyWith()
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class SubmitToolOutputsUnit with EquatableMixin {
+
+  SubmitToolOutputsUnit(
+      {required this.type,
+      required this.enumX});
+
+  @JsonKey(name: "type", defaultValue: "")
+  final String type;
+
+  @JsonKey(name: "enum", defaultValue: [])
+  final List<String> enumX;
+
+
+  factory SubmitToolOutputsUnit.fromJson(Map<String, dynamic> json) => _$SubmitToolOutputsUnitFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$SubmitToolOutputsUnitToJson(this);
+  
+  factory SubmitToolOutputsUnit.emptyInstance() => SubmitToolOutputsUnit(type: "", enumX: []);
+  
+  @override
+  List<Object?> get props => _$props;
+}
+
+@CopyWith()
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class SubmitToolOutputsProperties with EquatableMixin {
+
+  SubmitToolOutputsProperties(
+      {required this.location,
+      required this.unit});
+
+  @JsonKey(name: "location", defaultValue: SubmitToolOutputsLocation.emptyInstance)
+  final SubmitToolOutputsLocation location;
+
+  @JsonKey(name: "unit", defaultValue: SubmitToolOutputsUnit.emptyInstance)
+  final SubmitToolOutputsUnit unit;
+
+
+  factory SubmitToolOutputsProperties.fromJson(Map<String, dynamic> json) => _$SubmitToolOutputsPropertiesFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$SubmitToolOutputsPropertiesToJson(this);
+  
+  factory SubmitToolOutputsProperties.emptyInstance() => SubmitToolOutputsProperties(location: SubmitToolOutputsLocation.emptyInstance(), unit: SubmitToolOutputsUnit.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
+}
+
+@CopyWith()
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class SubmitToolOutputsParameters with EquatableMixin {
+
+  SubmitToolOutputsParameters(
+      {required this.type,
+      required this.properties,
+      required this.requiredX});
+
+  @JsonKey(name: "type", defaultValue: "")
+  final String type;
+
+  @JsonKey(name: "properties", defaultValue: SubmitToolOutputsProperties.emptyInstance)
+  final SubmitToolOutputsProperties properties;
+
+  @JsonKey(name: "required", defaultValue: [])
+  final List<String> requiredX;
+
+
+  factory SubmitToolOutputsParameters.fromJson(Map<String, dynamic> json) => _$SubmitToolOutputsParametersFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$SubmitToolOutputsParametersToJson(this);
+  
+  factory SubmitToolOutputsParameters.emptyInstance() => SubmitToolOutputsParameters(type: "", properties: SubmitToolOutputsProperties.emptyInstance(), requiredX: []);
+  
+  @override
+  List<Object?> get props => _$props;
+}
+
+@CopyWith()
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class SubmitToolOutputsFunction with EquatableMixin {
+
+  SubmitToolOutputsFunction(
+      {required this.name,
+      required this.description,
+      required this.parameters});
+
+  @JsonKey(name: "name", defaultValue: "")
+  final String name;
+
+  @JsonKey(name: "description", defaultValue: "")
+  final String description;
+
+  @JsonKey(name: "parameters", defaultValue: SubmitToolOutputsParameters.emptyInstance)
+  final SubmitToolOutputsParameters parameters;
+
+
+  factory SubmitToolOutputsFunction.fromJson(Map<String, dynamic> json) => _$SubmitToolOutputsFunctionFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$SubmitToolOutputsFunctionToJson(this);
+  
+  factory SubmitToolOutputsFunction.emptyInstance() => SubmitToolOutputsFunction(name: "", description: "", parameters: SubmitToolOutputsParameters.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
+}
+
+@CopyWith()
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class SubmitToolOutputsToolsItem with EquatableMixin {
+
+  SubmitToolOutputsToolsItem(
+      {required this.type,
+      required this.function});
+
+  @JsonKey(name: "type", defaultValue: "")
+  final String type;
+
+  @JsonKey(name: "function", defaultValue: SubmitToolOutputsFunction.emptyInstance)
+  final SubmitToolOutputsFunction function;
+
+
+  factory SubmitToolOutputsToolsItem.fromJson(Map<String, dynamic> json) => _$SubmitToolOutputsToolsItemFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$SubmitToolOutputsToolsItemToJson(this);
+  
+  factory SubmitToolOutputsToolsItem.emptyInstance() => SubmitToolOutputsToolsItem(type: "", function: SubmitToolOutputsFunction.emptyInstance());
+  
+  @override
+  List<Object?> get props => _$props;
+}
+
+@Autoequal()
+@JsonSerializable(explicitToJson: true)
+class SubmitToolOutputsMetadata with EquatableMixin {
+
+  SubmitToolOutputsMetadata();
+
+  factory SubmitToolOutputsMetadata.fromJson(Map<String, dynamic> json) => _$SubmitToolOutputsMetadataFromJson(json);
+  
+  Map<String, dynamic> toJson() => _$SubmitToolOutputsMetadataToJson(this);
+  
+  factory SubmitToolOutputsMetadata.emptyInstance() => SubmitToolOutputsMetadata();
+  
+  @override
+  List<Object?> get props => _$props;
+}
 
 

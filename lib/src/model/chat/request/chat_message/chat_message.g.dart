@@ -6,39 +6,16 @@ part of 'chat_message.dart';
 // AutoequalGenerator
 // **************************************************************************
 
-mixin _$ToolCallsAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props => _$ToolCallsAutoequal(this as ToolCalls)._$props;
-}
-
 extension _$ToolCallsAutoequal on ToolCalls {
   List<Object?> get _$props => [id, type, function];
-}
-
-mixin _$ChatMessageAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$ChatMessageAutoequal(this as ChatMessage)._$props;
 }
 
 extension _$ChatMessageAutoequal on ChatMessage {
   List<Object?> get _$props => [role, content, name, toolCalls, toolCallId];
 }
 
-mixin _$MessageContentAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$MessageContentAutoequal(this as MessageContent)._$props;
-}
-
 extension _$MessageContentAutoequal on MessageContent {
   List<Object?> get _$props => [type, text, imageUrl];
-}
-
-mixin _$OpenAiImageInfoAutoequalMixin on EquatableMixin {
-  @override
-  List<Object?> get props =>
-      _$OpenAiImageInfoAutoequal(this as OpenAiImageInfo)._$props;
 }
 
 extension _$OpenAiImageInfoAutoequal on OpenAiImageInfo {
@@ -63,9 +40,9 @@ abstract class _$ToolCallsCWProxy {
   /// ToolCalls(...).copyWith(id: 12, name: "My name")
   /// ````
   ToolCalls call({
-    String? id,
-    String? type,
-    FunctionCall? function,
+    String id,
+    String type,
+    FunctionCall function,
   });
 }
 
@@ -98,15 +75,15 @@ class _$ToolCallsCWProxyImpl implements _$ToolCallsCWProxy {
     Object? function = const $CopyWithPlaceholder(),
   }) {
     return ToolCalls(
-      id: id == const $CopyWithPlaceholder() || id == null
+      id: id == const $CopyWithPlaceholder()
           ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
-      type: type == const $CopyWithPlaceholder() || type == null
+      type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String,
-      function: function == const $CopyWithPlaceholder() || function == null
+      function: function == const $CopyWithPlaceholder()
           ? _value.function
           // ignore: cast_nullable_to_non_nullable
           : function as FunctionCall,
@@ -138,7 +115,7 @@ abstract class _$ChatMessageCWProxy {
   /// ChatMessage(...).copyWith(id: 12, name: "My name")
   /// ````
   ChatMessage call({
-    String? role,
+    String role,
     dynamic content,
     String? name,
     List<ToolCalls>? toolCalls,
@@ -184,11 +161,11 @@ class _$ChatMessageCWProxyImpl implements _$ChatMessageCWProxy {
     Object? toolCallId = const $CopyWithPlaceholder(),
   }) {
     return ChatMessage(
-      role: role == const $CopyWithPlaceholder() || role == null
+      role: role == const $CopyWithPlaceholder()
           ? _value.role
           // ignore: cast_nullable_to_non_nullable
           : role as String,
-      content: content == const $CopyWithPlaceholder() || content == null
+      content: content == const $CopyWithPlaceholder()
           ? _value.content
           // ignore: cast_nullable_to_non_nullable
           : content as dynamic,
@@ -228,7 +205,7 @@ abstract class _$MessageContentCWProxy {
   /// MessageContent(...).copyWith(id: 12, name: "My name")
   /// ````
   MessageContent call({
-    String? type,
+    String type,
     String? text,
     OpenAiImageInfo? imageUrl,
   });
@@ -264,7 +241,7 @@ class _$MessageContentCWProxyImpl implements _$MessageContentCWProxy {
     Object? imageUrl = const $CopyWithPlaceholder(),
   }) {
     return MessageContent(
-      type: type == const $CopyWithPlaceholder() || type == null
+      type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String,
@@ -296,7 +273,7 @@ abstract class _$OpenAiImageInfoCWProxy {
   /// OpenAiImageInfo(...).copyWith(id: 12, name: "My name")
   /// ````
   OpenAiImageInfo call({
-    String? url,
+    String url,
   });
 }
 
@@ -321,7 +298,7 @@ class _$OpenAiImageInfoCWProxyImpl implements _$OpenAiImageInfoCWProxy {
     Object? url = const $CopyWithPlaceholder(),
   }) {
     return OpenAiImageInfo(
-      url == const $CopyWithPlaceholder() || url == null
+      url == const $CopyWithPlaceholder()
           ? _value.url
           // ignore: cast_nullable_to_non_nullable
           : url as String,
@@ -361,24 +338,15 @@ ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => ChatMessage(
       toolCallId: json['tool_call_id'] as String?,
     );
 
-Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) {
-  final val = <String, dynamic>{
-    'role': instance.role,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('content', instance.content);
-  writeNotNull('name', instance.name);
-  writeNotNull(
-      'tool_calls', instance.toolCalls?.map((e) => e.toJson()).toList());
-  writeNotNull('tool_call_id', instance.toolCallId);
-  return val;
-}
+Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) =>
+    <String, dynamic>{
+      'role': instance.role,
+      if (instance.content case final value?) 'content': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.toolCalls?.map((e) => e.toJson()).toList() case final value?)
+        'tool_calls': value,
+      if (instance.toolCallId case final value?) 'tool_call_id': value,
+    };
 
 MessageContent _$MessageContentFromJson(Map<String, dynamic> json) =>
     MessageContent(
@@ -389,21 +357,12 @@ MessageContent _$MessageContentFromJson(Map<String, dynamic> json) =>
           : OpenAiImageInfo.fromJson(json['image_url'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$MessageContentToJson(MessageContent instance) {
-  final val = <String, dynamic>{
-    'type': instance.type,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('text', instance.text);
-  writeNotNull('image_url', instance.imageUrl?.toJson());
-  return val;
-}
+Map<String, dynamic> _$MessageContentToJson(MessageContent instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      if (instance.text case final value?) 'text': value,
+      if (instance.imageUrl?.toJson() case final value?) 'image_url': value,
+    };
 
 OpenAiImageInfo _$OpenAiImageInfoFromJson(Map<String, dynamic> json) =>
     OpenAiImageInfo(

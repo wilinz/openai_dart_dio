@@ -1,9 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:autoequal/autoequal.dart';
 
 part 'open_ai_message_file.g.dart';
 
+@CopyWith()
+@Autoequal()
 @JsonSerializable(explicitToJson: true)
-class OpenAiMessageFile {
+class OpenAiMessageFile with EquatableMixin {
+
   OpenAiMessageFile(
       {required this.id,
       required this.object,
@@ -12,24 +18,29 @@ class OpenAiMessageFile {
       required this.fileId});
 
   @JsonKey(name: "id", defaultValue: "")
-  String id;
+  final String id;
 
   @JsonKey(name: "object", defaultValue: "")
-  String object;
+  final String object;
 
   @JsonKey(name: "created_at", defaultValue: 0)
-  int createdAt;
+  final int createdAt;
 
   @JsonKey(name: "message_id", defaultValue: "")
-  String messageId;
+  final String messageId;
 
   @JsonKey(name: "file_id", defaultValue: "")
-  String fileId;
+  final String fileId;
 
 
   factory OpenAiMessageFile.fromJson(Map<String, dynamic> json) => _$OpenAiMessageFileFromJson(json);
-
+  
   Map<String, dynamic> toJson() => _$OpenAiMessageFileToJson(this);
+  
+  factory OpenAiMessageFile.emptyInstance() => OpenAiMessageFile(id: "", object: "", createdAt: 0, messageId: "", fileId: "");
+  
+  @override
+  List<Object?> get props => _$props;
 }
 
 
