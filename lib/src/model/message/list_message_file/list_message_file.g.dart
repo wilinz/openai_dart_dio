@@ -3,18 +3,6 @@
 part of 'list_message_file.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ListMessageFileAutoequal on ListMessageFile {
-  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
-}
-
-extension _$ListMessageFileDataItemAutoequal on ListMessageFileDataItem {
-  List<Object?> get _$props => [id, object, createdAt, messageId];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -195,6 +183,19 @@ extension $ListMessageFileDataItemCopyWith on ListMessageFileDataItem {
   // ignore: library_private_types_in_public_api
   _$ListMessageFileDataItemCWProxy get copyWith =>
       _$ListMessageFileDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ListMessageFileEquatableAnnotations on ListMessageFile {
+  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
+}
+
+extension _$ListMessageFileDataItemEquatableAnnotations
+    on ListMessageFileDataItem {
+  List<Object?> get _$props => [id, object, createdAt, messageId];
 }
 
 // **************************************************************************

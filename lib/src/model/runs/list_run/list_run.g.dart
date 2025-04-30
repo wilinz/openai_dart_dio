@@ -3,18 +3,6 @@
 part of 'list_run.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ListRunAutoequal on ListRun {
-  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
-}
-
-extension _$ListRunDataItemAutoequal on ListRunDataItem {
-  List<Object?> get _$props => [];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -109,6 +97,18 @@ extension $ListRunCopyWith on ListRun {
   /// Returns a callable class that can be used as follows: `instanceOfListRun.copyWith(...)` or like so:`instanceOfListRun.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$ListRunCWProxy get copyWith => _$ListRunCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ListRunEquatableAnnotations on ListRun {
+  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
+}
+
+extension _$ListRunDataItemEquatableAnnotations on ListRunDataItem {
+  List<Object?> get _$props => [];
 }
 
 // **************************************************************************

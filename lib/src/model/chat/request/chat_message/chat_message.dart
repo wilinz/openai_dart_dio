@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -26,7 +26,7 @@ class MessageContentType {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ToolCalls with EquatableMixin {
   @JsonKey(name: 'id', includeIfNull: false)
@@ -50,7 +50,7 @@ class ToolCalls with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ChatMessage with EquatableMixin {
   @JsonKey(name: 'role', includeIfNull: false)
@@ -93,7 +93,7 @@ class ChatMessage with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class MessageContent with EquatableMixin {
   /// text or image_url use MessageContentType
@@ -126,7 +126,7 @@ class MessageContent with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class OpenAiImageInfo with EquatableMixin {
   @JsonKey(name: 'url', includeIfNull: false)

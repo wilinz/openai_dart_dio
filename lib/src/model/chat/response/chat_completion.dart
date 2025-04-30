@@ -1,4 +1,4 @@
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -7,7 +7,7 @@ import 'package:openai_dart_dio/src/model/chat/function_call.dart';
 part 'chat_completion.g.dart';
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ChatCompletion with EquatableMixin {
   @JsonKey(name: 'id', includeIfNull: false, defaultValue: '')
@@ -52,7 +52,7 @@ class ChatCompletion with EquatableMixin {
 
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ChatCompletionChoice with EquatableMixin {
   @JsonKey(name: 'finish_reason', includeIfNull: false, defaultValue: '')
@@ -78,7 +78,7 @@ class ChatCompletionChoice with EquatableMixin {
 
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ChatCompletionMessage with EquatableMixin {
   @JsonKey(name: 'content', includeIfNull: false, defaultValue: null)
@@ -103,7 +103,7 @@ class ChatCompletionMessage with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ToolCall with EquatableMixin  {
   @JsonKey(name: 'id', includeIfNull: false, defaultValue: '')
@@ -128,7 +128,7 @@ class ToolCall with EquatableMixin  {
 
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class Usage with EquatableMixin  {
   @JsonKey(name: 'completion_tokens', includeIfNull: false, defaultValue: 0)

@@ -3,33 +3,6 @@
 part of 'chat_completion_chunk.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ChatCompletionChunkAutoequal on ChatCompletionChunk {
-  List<Object?> get _$props => [
-        id,
-        choices,
-        created,
-        model,
-        systemFingerprint,
-        object,
-      ];
-}
-
-extension _$ChatCompletionChoiceChunkAutoequal on ChatCompletionChoiceChunk {
-  List<Object?> get _$props => [delta, finishReason, index];
-}
-
-extension _$ToolCallChunkAutoequal on ToolCallChunk {
-  List<Object?> get _$props => [index, id, type, function];
-}
-
-extension _$ChatCompletionDeltaChunkAutoequal on ChatCompletionDeltaChunk {
-  List<Object?> get _$props => [content, toolCalls, role];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -369,6 +342,35 @@ extension $ChatCompletionDeltaChunkCopyWith on ChatCompletionDeltaChunk {
   // ignore: library_private_types_in_public_api
   _$ChatCompletionDeltaChunkCWProxy get copyWith =>
       _$ChatCompletionDeltaChunkCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ChatCompletionChunkEquatableAnnotations on ChatCompletionChunk {
+  List<Object?> get _$props => [
+        id,
+        choices,
+        created,
+        model,
+        systemFingerprint,
+        object,
+      ];
+}
+
+extension _$ChatCompletionChoiceChunkEquatableAnnotations
+    on ChatCompletionChoiceChunk {
+  List<Object?> get _$props => [delta, finishReason, index];
+}
+
+extension _$ToolCallChunkEquatableAnnotations on ToolCallChunk {
+  List<Object?> get _$props => [index, id, type, function];
+}
+
+extension _$ChatCompletionDeltaChunkEquatableAnnotations
+    on ChatCompletionDeltaChunk {
+  List<Object?> get _$props => [content, toolCalls, role];
 }
 
 // **************************************************************************

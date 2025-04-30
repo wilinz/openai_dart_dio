@@ -3,14 +3,6 @@
 part of 'open_ai_fine_tuning_job.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiFineTuningJobAutoequal on OpenAiFineTuningJob {
-  List<Object?> get _$props => [object, id, createdAt, level, message];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -106,6 +98,14 @@ extension $OpenAiFineTuningJobCopyWith on OpenAiFineTuningJob {
   // ignore: library_private_types_in_public_api
   _$OpenAiFineTuningJobCWProxy get copyWith =>
       _$OpenAiFineTuningJobCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiFineTuningJobEquatableAnnotations on OpenAiFineTuningJob {
+  List<Object?> get _$props => [object, id, createdAt, level, message];
 }
 
 // **************************************************************************

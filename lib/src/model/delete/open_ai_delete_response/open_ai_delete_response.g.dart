@@ -3,14 +3,6 @@
 part of 'open_ai_delete_response.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiDeleteResponseAutoequal on OpenAiDeleteResponse {
-  List<Object?> get _$props => [id, object, deleted];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -85,6 +77,14 @@ extension $OpenAiDeleteResponseCopyWith on OpenAiDeleteResponse {
   // ignore: library_private_types_in_public_api
   _$OpenAiDeleteResponseCWProxy get copyWith =>
       _$OpenAiDeleteResponseCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiDeleteResponseEquatableAnnotations on OpenAiDeleteResponse {
+  List<Object?> get _$props => [id, object, deleted];
 }
 
 // **************************************************************************

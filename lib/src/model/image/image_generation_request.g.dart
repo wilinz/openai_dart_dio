@@ -3,23 +3,6 @@
 part of 'image_generation_request.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ImageGenerationRequestAutoequal on ImageGenerationRequest {
-  List<Object?> get _$props => [
-        prompt,
-        model,
-        n,
-        quality,
-        responseFormat,
-        size,
-        style,
-        user,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -150,6 +133,24 @@ extension $ImageGenerationRequestCopyWith on ImageGenerationRequest {
   // ignore: library_private_types_in_public_api
   _$ImageGenerationRequestCWProxy get copyWith =>
       _$ImageGenerationRequestCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ImageGenerationRequestEquatableAnnotations
+    on ImageGenerationRequest {
+  List<Object?> get _$props => [
+        prompt,
+        model,
+        n,
+        quality,
+        responseFormat,
+        size,
+        style,
+        user,
+      ];
 }
 
 // **************************************************************************

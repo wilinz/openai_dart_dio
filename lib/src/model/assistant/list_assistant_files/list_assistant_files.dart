@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 
 part 'list_assistant_files.g.dart';
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListAssistantFiles with EquatableMixin {
 
@@ -44,7 +44,7 @@ class ListAssistantFiles with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListAssistantFilesDataItem with EquatableMixin {
 

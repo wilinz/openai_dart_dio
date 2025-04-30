@@ -1,4 +1,4 @@
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -6,7 +6,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'function_call.g.dart';
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class FunctionCall with EquatableMixin {
   @JsonKey(name: 'name', includeIfNull: false)

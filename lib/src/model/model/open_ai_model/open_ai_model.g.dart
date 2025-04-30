@@ -3,14 +3,6 @@
 part of 'open_ai_model.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiModelAutoequal on OpenAiModel {
-  List<Object?> get _$props => [id, object, created, ownedBy];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -94,6 +86,14 @@ extension $OpenAiModelCopyWith on OpenAiModel {
   /// Returns a callable class that can be used as follows: `instanceOfOpenAiModel.copyWith(...)` or like so:`instanceOfOpenAiModel.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$OpenAiModelCWProxy get copyWith => _$OpenAiModelCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiModelEquatableAnnotations on OpenAiModel {
+  List<Object?> get _$props => [id, object, created, ownedBy];
 }
 
 // **************************************************************************

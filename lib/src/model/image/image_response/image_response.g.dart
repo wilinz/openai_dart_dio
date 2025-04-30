@@ -3,18 +3,6 @@
 part of 'image_response.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ImageResponseAutoequal on ImageResponse {
-  List<Object?> get _$props => [created, data];
-}
-
-extension _$ImageDataItemAutoequal on ImageDataItem {
-  List<Object?> get _$props => [url, b64Json, revisedPrompt];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -148,6 +136,18 @@ extension $ImageDataItemCopyWith on ImageDataItem {
   /// Returns a callable class that can be used as follows: `instanceOfImageDataItem.copyWith(...)` or like so:`instanceOfImageDataItem.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$ImageDataItemCWProxy get copyWith => _$ImageDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ImageResponseEquatableAnnotations on ImageResponse {
+  List<Object?> get _$props => [created, data];
+}
+
+extension _$ImageDataItemEquatableAnnotations on ImageDataItem {
+  List<Object?> get _$props => [url, b64Json, revisedPrompt];
 }
 
 // **************************************************************************

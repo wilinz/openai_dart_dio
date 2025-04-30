@@ -3,21 +3,6 @@
 part of 'open_ai_file.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiFileAutoequal on OpenAiFile {
-  List<Object?> get _$props => [
-        id,
-        object,
-        bytes,
-        createdAt,
-        filename,
-        purpose,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -123,6 +108,21 @@ extension $OpenAiFileCopyWith on OpenAiFile {
   /// Returns a callable class that can be used as follows: `instanceOfOpenAiFile.copyWith(...)` or like so:`instanceOfOpenAiFile.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$OpenAiFileCWProxy get copyWith => _$OpenAiFileCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiFileEquatableAnnotations on OpenAiFile {
+  List<Object?> get _$props => [
+        id,
+        object,
+        bytes,
+        createdAt,
+        filename,
+        purpose,
+      ];
 }
 
 // **************************************************************************

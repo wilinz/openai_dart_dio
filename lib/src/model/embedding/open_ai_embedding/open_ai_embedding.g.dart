@@ -3,14 +3,6 @@
 part of 'open_ai_embedding.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiEmbeddingAutoequal on OpenAiEmbedding {
-  List<Object?> get _$props => [object, embedding, index];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -84,6 +76,14 @@ extension $OpenAiEmbeddingCopyWith on OpenAiEmbedding {
   /// Returns a callable class that can be used as follows: `instanceOfOpenAiEmbedding.copyWith(...)` or like so:`instanceOfOpenAiEmbedding.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$OpenAiEmbeddingCWProxy get copyWith => _$OpenAiEmbeddingCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiEmbeddingEquatableAnnotations on OpenAiEmbedding {
+  List<Object?> get _$props => [object, embedding, index];
 }
 
 // **************************************************************************

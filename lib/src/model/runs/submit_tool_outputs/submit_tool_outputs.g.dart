@@ -3,62 +3,6 @@
 part of 'submit_tool_outputs.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$SubmitToolOutputsAutoequal on SubmitToolOutputs {
-  List<Object?> get _$props => [
-        id,
-        object,
-        createdAt,
-        assistantId,
-        threadId,
-        status,
-        startedAt,
-        expiresAt,
-        cancelledAt,
-        failedAt,
-        completedAt,
-        lastError,
-        model,
-        instructions,
-        tools,
-        fileIds,
-        metadata,
-      ];
-}
-
-extension _$SubmitToolOutputsLocationAutoequal on SubmitToolOutputsLocation {
-  List<Object?> get _$props => [type, description];
-}
-
-extension _$SubmitToolOutputsUnitAutoequal on SubmitToolOutputsUnit {
-  List<Object?> get _$props => [type, enumX];
-}
-
-extension _$SubmitToolOutputsPropertiesAutoequal
-    on SubmitToolOutputsProperties {
-  List<Object?> get _$props => [location, unit];
-}
-
-extension _$SubmitToolOutputsParametersAutoequal
-    on SubmitToolOutputsParameters {
-  List<Object?> get _$props => [type, properties, requiredX];
-}
-
-extension _$SubmitToolOutputsFunctionAutoequal on SubmitToolOutputsFunction {
-  List<Object?> get _$props => [name, description, parameters];
-}
-
-extension _$SubmitToolOutputsToolsItemAutoequal on SubmitToolOutputsToolsItem {
-  List<Object?> get _$props => [type, function];
-}
-
-extension _$SubmitToolOutputsMetadataAutoequal on SubmitToolOutputsMetadata {
-  List<Object?> get _$props => [];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -697,6 +641,66 @@ extension $SubmitToolOutputsToolsItemCopyWith on SubmitToolOutputsToolsItem {
   // ignore: library_private_types_in_public_api
   _$SubmitToolOutputsToolsItemCWProxy get copyWith =>
       _$SubmitToolOutputsToolsItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$SubmitToolOutputsEquatableAnnotations on SubmitToolOutputs {
+  List<Object?> get _$props => [
+        id,
+        object,
+        createdAt,
+        assistantId,
+        threadId,
+        status,
+        startedAt,
+        expiresAt,
+        cancelledAt,
+        failedAt,
+        completedAt,
+        lastError,
+        model,
+        instructions,
+        tools,
+        fileIds,
+        metadata,
+      ];
+}
+
+extension _$SubmitToolOutputsLocationEquatableAnnotations
+    on SubmitToolOutputsLocation {
+  List<Object?> get _$props => [type, description];
+}
+
+extension _$SubmitToolOutputsUnitEquatableAnnotations on SubmitToolOutputsUnit {
+  List<Object?> get _$props => [type, enumX];
+}
+
+extension _$SubmitToolOutputsPropertiesEquatableAnnotations
+    on SubmitToolOutputsProperties {
+  List<Object?> get _$props => [location, unit];
+}
+
+extension _$SubmitToolOutputsParametersEquatableAnnotations
+    on SubmitToolOutputsParameters {
+  List<Object?> get _$props => [type, properties, requiredX];
+}
+
+extension _$SubmitToolOutputsFunctionEquatableAnnotations
+    on SubmitToolOutputsFunction {
+  List<Object?> get _$props => [name, description, parameters];
+}
+
+extension _$SubmitToolOutputsToolsItemEquatableAnnotations
+    on SubmitToolOutputsToolsItem {
+  List<Object?> get _$props => [type, function];
+}
+
+extension _$SubmitToolOutputsMetadataEquatableAnnotations
+    on SubmitToolOutputsMetadata {
+  List<Object?> get _$props => [];
 }
 
 // **************************************************************************

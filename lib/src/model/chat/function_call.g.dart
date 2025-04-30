@@ -3,14 +3,6 @@
 part of 'function_call.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$FunctionCallAutoequal on FunctionCall {
-  List<Object?> get _$props => [name, arguments];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -72,6 +64,14 @@ extension $FunctionCallCopyWith on FunctionCall {
   /// Returns a callable class that can be used as follows: `instanceOfFunctionCall.copyWith(...)` or like so:`instanceOfFunctionCall.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$FunctionCallCWProxy get copyWith => _$FunctionCallCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$FunctionCallEquatableAnnotations on FunctionCall {
+  List<Object?> get _$props => [name, arguments];
 }
 
 // **************************************************************************

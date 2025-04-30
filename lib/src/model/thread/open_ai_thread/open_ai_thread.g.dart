@@ -3,18 +3,6 @@
 part of 'open_ai_thread.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiThreadAutoequal on OpenAiThread {
-  List<Object?> get _$props => [id, object, createdAt, metadata];
-}
-
-extension _$OpenAiThreadMetadataAutoequal on OpenAiThreadMetadata {
-  List<Object?> get _$props => [modified, user];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -161,6 +149,18 @@ extension $OpenAiThreadMetadataCopyWith on OpenAiThreadMetadata {
   // ignore: library_private_types_in_public_api
   _$OpenAiThreadMetadataCWProxy get copyWith =>
       _$OpenAiThreadMetadataCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiThreadEquatableAnnotations on OpenAiThread {
+  List<Object?> get _$props => [id, object, createdAt, metadata];
+}
+
+extension _$OpenAiThreadMetadataEquatableAnnotations on OpenAiThreadMetadata {
+  List<Object?> get _$props => [modified, user];
 }
 
 // **************************************************************************

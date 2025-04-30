@@ -3,33 +3,6 @@
 part of 'open_ai_assistant.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiAssistantAutoequal on OpenAiAssistant {
-  List<Object?> get _$props => [
-        id,
-        object,
-        createdAt,
-        name,
-        description,
-        model,
-        instructions,
-        tools,
-        fileIds,
-        metadata,
-      ];
-}
-
-extension _$OpenAiAssistantToolsItemAutoequal on OpenAiAssistantToolsItem {
-  List<Object?> get _$props => [type];
-}
-
-extension _$OpenAiAssistantMetadataAutoequal on OpenAiAssistantMetadata {
-  List<Object?> get _$props => [];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -234,6 +207,35 @@ extension $OpenAiAssistantToolsItemCopyWith on OpenAiAssistantToolsItem {
   // ignore: library_private_types_in_public_api
   _$OpenAiAssistantToolsItemCWProxy get copyWith =>
       _$OpenAiAssistantToolsItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiAssistantEquatableAnnotations on OpenAiAssistant {
+  List<Object?> get _$props => [
+        id,
+        object,
+        createdAt,
+        name,
+        description,
+        model,
+        instructions,
+        tools,
+        fileIds,
+        metadata,
+      ];
+}
+
+extension _$OpenAiAssistantToolsItemEquatableAnnotations
+    on OpenAiAssistantToolsItem {
+  List<Object?> get _$props => [type];
+}
+
+extension _$OpenAiAssistantMetadataEquatableAnnotations
+    on OpenAiAssistantMetadata {
+  List<Object?> get _$props => [];
 }
 
 // **************************************************************************

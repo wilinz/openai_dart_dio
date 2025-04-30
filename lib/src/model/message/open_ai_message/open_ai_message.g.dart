@@ -3,37 +3,6 @@
 part of 'open_ai_message.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiMessageAutoequal on OpenAiMessage {
-  List<Object?> get _$props => [
-        id,
-        object,
-        createdAt,
-        threadId,
-        role,
-        content,
-        fileIds,
-        assistantId,
-        runId,
-        metadata,
-      ];
-}
-
-extension _$OpenAiMessageTextAutoequal on OpenAiMessageText {
-  List<Object?> get _$props => [value, annotations];
-}
-
-extension _$OpenAiMessageContentItemAutoequal on OpenAiMessageContentItem {
-  List<Object?> get _$props => [type, text];
-}
-
-extension _$OpenAiMessageMetadataAutoequal on OpenAiMessageMetadata {
-  List<Object?> get _$props => [];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -310,6 +279,38 @@ extension $OpenAiMessageContentItemCopyWith on OpenAiMessageContentItem {
   // ignore: library_private_types_in_public_api
   _$OpenAiMessageContentItemCWProxy get copyWith =>
       _$OpenAiMessageContentItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiMessageEquatableAnnotations on OpenAiMessage {
+  List<Object?> get _$props => [
+        id,
+        object,
+        createdAt,
+        threadId,
+        role,
+        content,
+        fileIds,
+        assistantId,
+        runId,
+        metadata,
+      ];
+}
+
+extension _$OpenAiMessageTextEquatableAnnotations on OpenAiMessageText {
+  List<Object?> get _$props => [value, annotations];
+}
+
+extension _$OpenAiMessageContentItemEquatableAnnotations
+    on OpenAiMessageContentItem {
+  List<Object?> get _$props => [type, text];
+}
+
+extension _$OpenAiMessageMetadataEquatableAnnotations on OpenAiMessageMetadata {
+  List<Object?> get _$props => [];
 }
 
 // **************************************************************************

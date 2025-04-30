@@ -3,21 +3,6 @@
 part of 'speech_request.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$SpeechRequestAutoequal on SpeechRequest {
-  List<Object?> get _$props => [
-        model,
-        input,
-        voice,
-        instructions,
-        responseFormat,
-        speed,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -125,6 +110,21 @@ extension $SpeechRequestCopyWith on SpeechRequest {
   /// Returns a callable class that can be used as follows: `instanceOfSpeechRequest.copyWith(...)` or like so:`instanceOfSpeechRequest.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$SpeechRequestCWProxy get copyWith => _$SpeechRequestCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$SpeechRequestEquatableAnnotations on SpeechRequest {
+  List<Object?> get _$props => [
+        model,
+        input,
+        voice,
+        instructions,
+        responseFormat,
+        speed,
+      ];
 }
 
 // **************************************************************************

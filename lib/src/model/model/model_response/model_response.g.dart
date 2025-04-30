@@ -3,18 +3,6 @@
 part of 'model_response.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ModelResponseAutoequal on ModelResponse {
-  List<Object?> get _$props => [object, data];
-}
-
-extension _$ModelDataItemAutoequal on ModelDataItem {
-  List<Object?> get _$props => [id, object, created, ownedBy];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -158,6 +146,18 @@ extension $ModelDataItemCopyWith on ModelDataItem {
   /// Returns a callable class that can be used as follows: `instanceOfModelDataItem.copyWith(...)` or like so:`instanceOfModelDataItem.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$ModelDataItemCWProxy get copyWith => _$ModelDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ModelResponseEquatableAnnotations on ModelResponse {
+  List<Object?> get _$props => [object, data];
+}
+
+extension _$ModelDataItemEquatableAnnotations on ModelDataItem {
+  List<Object?> get _$props => [id, object, created, ownedBy];
 }
 
 // **************************************************************************

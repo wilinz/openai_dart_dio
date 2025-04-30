@@ -3,33 +3,6 @@
 part of 'open_ai_fine_tuning.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiFineTuningAutoequal on OpenAiFineTuning {
-  List<Object?> get _$props => [
-        object,
-        id,
-        model,
-        createdAt,
-        finishedAt,
-        fineTunedModel,
-        organizationId,
-        resultFiles,
-        status,
-        validationFile,
-        trainingFile,
-        hyperparameters,
-        trainedTokens,
-      ];
-}
-
-extension _$OpenAiFineTuningHyperparametersAutoequal
-    on OpenAiFineTuningHyperparameters {
-  List<Object?> get _$props => [nEpochs];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -274,6 +247,33 @@ extension $OpenAiFineTuningHyperparametersCopyWith
   // ignore: library_private_types_in_public_api
   _$OpenAiFineTuningHyperparametersCWProxy get copyWith =>
       _$OpenAiFineTuningHyperparametersCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiFineTuningEquatableAnnotations on OpenAiFineTuning {
+  List<Object?> get _$props => [
+        object,
+        id,
+        model,
+        createdAt,
+        finishedAt,
+        fineTunedModel,
+        organizationId,
+        resultFiles,
+        status,
+        validationFile,
+        trainingFile,
+        hyperparameters,
+        trainedTokens,
+      ];
+}
+
+extension _$OpenAiFineTuningHyperparametersEquatableAnnotations
+    on OpenAiFineTuningHyperparameters {
+  List<Object?> get _$props => [nEpochs];
 }
 
 // **************************************************************************

@@ -3,23 +3,6 @@
 part of 'image_edit_request.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ImageEditRequestAutoequal on ImageEditRequest {
-  List<Object?> get _$props => [
-        image,
-        prompt,
-        mask,
-        model,
-        n,
-        size,
-        responseFormat,
-        user,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -148,6 +131,23 @@ extension $ImageEditRequestCopyWith on ImageEditRequest {
   /// Returns a callable class that can be used as follows: `instanceOfImageEditRequest.copyWith(...)` or like so:`instanceOfImageEditRequest.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$ImageEditRequestCWProxy get copyWith => _$ImageEditRequestCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ImageEditRequestEquatableAnnotations on ImageEditRequest {
+  List<Object?> get _$props => [
+        image,
+        prompt,
+        mask,
+        model,
+        n,
+        size,
+        responseFormat,
+        user,
+      ];
 }
 
 // **************************************************************************

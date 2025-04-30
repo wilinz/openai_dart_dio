@@ -3,50 +3,6 @@
 part of 'moderations_response.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ModerationsResponseAutoequal on ModerationsResponse {
-  List<Object?> get _$props => [id, model, results];
-}
-
-extension _$ModerationsCategoriesAutoequal on ModerationsCategories {
-  List<Object?> get _$props => [
-        sexual,
-        hate,
-        harassment,
-        selfHarm,
-        sexualMinors,
-        hateThreatening,
-        violenceGraphic,
-        selfHarmIntent,
-        selfHarmInstructions,
-        harassmentThreatening,
-        violence,
-      ];
-}
-
-extension _$ModerationsCategoryScoresAutoequal on ModerationsCategoryScores {
-  List<Object?> get _$props => [
-        sexual,
-        hate,
-        harassment,
-        selfHarm,
-        sexualMinors,
-        hateThreatening,
-        violenceGraphic,
-        selfHarmIntent,
-        selfHarmInstructions,
-        harassmentThreatening,
-        violence,
-      ];
-}
-
-extension _$ModerationsResultsItemAutoequal on ModerationsResultsItem {
-  List<Object?> get _$props => [flagged, categories, categoryScores];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -539,6 +495,52 @@ extension $ModerationsResultsItemCopyWith on ModerationsResultsItem {
   // ignore: library_private_types_in_public_api
   _$ModerationsResultsItemCWProxy get copyWith =>
       _$ModerationsResultsItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ModerationsResponseEquatableAnnotations on ModerationsResponse {
+  List<Object?> get _$props => [id, model, results];
+}
+
+extension _$ModerationsCategoriesEquatableAnnotations on ModerationsCategories {
+  List<Object?> get _$props => [
+        sexual,
+        hate,
+        harassment,
+        selfHarm,
+        sexualMinors,
+        hateThreatening,
+        violenceGraphic,
+        selfHarmIntent,
+        selfHarmInstructions,
+        harassmentThreatening,
+        violence,
+      ];
+}
+
+extension _$ModerationsCategoryScoresEquatableAnnotations
+    on ModerationsCategoryScores {
+  List<Object?> get _$props => [
+        sexual,
+        hate,
+        harassment,
+        selfHarm,
+        sexualMinors,
+        hateThreatening,
+        violenceGraphic,
+        selfHarmIntent,
+        selfHarmInstructions,
+        harassmentThreatening,
+        violence,
+      ];
+}
+
+extension _$ModerationsResultsItemEquatableAnnotations
+    on ModerationsResultsItem {
+  List<Object?> get _$props => [flagged, categories, categoryScores];
 }
 
 // **************************************************************************

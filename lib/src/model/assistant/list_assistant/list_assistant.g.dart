@@ -3,33 +3,6 @@
 part of 'list_assistant.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ListAssistantAutoequal on ListAssistant {
-  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
-}
-
-extension _$ListAssistantMetadataAutoequal on ListAssistantMetadata {
-  List<Object?> get _$props => [];
-}
-
-extension _$ListAssistantDataItemAutoequal on ListAssistantDataItem {
-  List<Object?> get _$props => [
-        id,
-        object,
-        createdAt,
-        name,
-        description,
-        model,
-        instructions,
-        tools,
-        fileIds,
-        metadata,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -278,6 +251,33 @@ extension $ListAssistantDataItemCopyWith on ListAssistantDataItem {
   // ignore: library_private_types_in_public_api
   _$ListAssistantDataItemCWProxy get copyWith =>
       _$ListAssistantDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ListAssistantEquatableAnnotations on ListAssistant {
+  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
+}
+
+extension _$ListAssistantMetadataEquatableAnnotations on ListAssistantMetadata {
+  List<Object?> get _$props => [];
+}
+
+extension _$ListAssistantDataItemEquatableAnnotations on ListAssistantDataItem {
+  List<Object?> get _$props => [
+        id,
+        object,
+        createdAt,
+        name,
+        description,
+        model,
+        instructions,
+        tools,
+        fileIds,
+        metadata,
+      ];
 }
 
 // **************************************************************************

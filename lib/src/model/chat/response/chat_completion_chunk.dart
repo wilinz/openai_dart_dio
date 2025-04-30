@@ -1,4 +1,4 @@
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -7,7 +7,7 @@ import 'package:openai_dart_dio/src/model/chat/function_call.dart';
 part 'chat_completion_chunk.g.dart';
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ChatCompletionChunk with EquatableMixin {
   @JsonKey(name: 'id', includeIfNull: false, defaultValue: "")
@@ -47,7 +47,7 @@ class ChatCompletionChunk with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ChatCompletionChoiceChunk with EquatableMixin  {
   @JsonKey(name: 'delta', includeIfNull: false)
@@ -70,7 +70,7 @@ class ChatCompletionChoiceChunk with EquatableMixin  {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ToolCallChunk with EquatableMixin  {
   @JsonKey(name: 'index', includeIfNull: false, defaultValue: 0)
@@ -102,7 +102,7 @@ class ToolCallChunk with EquatableMixin  {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ChatCompletionDeltaChunk with EquatableMixin  {
   @JsonKey(name: 'content', includeIfNull: false, defaultValue: null)

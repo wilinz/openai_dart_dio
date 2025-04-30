@@ -3,21 +3,6 @@
 part of 'transcriptions_request.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$SpeechRecognitionRequestAutoequal on SpeechRecognitionRequest {
-  List<Object?> get _$props => [
-        file,
-        model,
-        language,
-        prompt,
-        responseFormat,
-        temperature,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -128,6 +113,22 @@ extension $SpeechRecognitionRequestCopyWith on SpeechRecognitionRequest {
   // ignore: library_private_types_in_public_api
   _$SpeechRecognitionRequestCWProxy get copyWith =>
       _$SpeechRecognitionRequestCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$SpeechRecognitionRequestEquatableAnnotations
+    on SpeechRecognitionRequest {
+  List<Object?> get _$props => [
+        file,
+        model,
+        language,
+        prompt,
+        responseFormat,
+        temperature,
+      ];
 }
 
 // **************************************************************************

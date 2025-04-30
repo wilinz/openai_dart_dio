@@ -3,14 +3,6 @@
 part of 'image_variation_request.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ImageVariationRequestAutoequal on ImageVariationRequest {
-  List<Object?> get _$props => [image, model, n, responseFormat, size, user];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -119,6 +111,14 @@ extension $ImageVariationRequestCopyWith on ImageVariationRequest {
   // ignore: library_private_types_in_public_api
   _$ImageVariationRequestCWProxy get copyWith =>
       _$ImageVariationRequestCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ImageVariationRequestEquatableAnnotations on ImageVariationRequest {
+  List<Object?> get _$props => [image, model, n, responseFormat, size, user];
 }
 
 // **************************************************************************

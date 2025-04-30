@@ -3,18 +3,6 @@
 part of 'list_assistant_files.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ListAssistantFilesAutoequal on ListAssistantFiles {
-  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
-}
-
-extension _$ListAssistantFilesDataItemAutoequal on ListAssistantFilesDataItem {
-  List<Object?> get _$props => [id, object, createdAt, assistantId];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -197,6 +185,19 @@ extension $ListAssistantFilesDataItemCopyWith on ListAssistantFilesDataItem {
   // ignore: library_private_types_in_public_api
   _$ListAssistantFilesDataItemCWProxy get copyWith =>
       _$ListAssistantFilesDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ListAssistantFilesEquatableAnnotations on ListAssistantFiles {
+  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
+}
+
+extension _$ListAssistantFilesDataItemEquatableAnnotations
+    on ListAssistantFilesDataItem {
+  List<Object?> get _$props => [id, object, createdAt, assistantId];
 }
 
 // **************************************************************************

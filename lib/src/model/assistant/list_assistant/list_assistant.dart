@@ -1,14 +1,14 @@
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:autoequal/autoequal.dart';
 
 part 'list_assistant.g.dart';
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
-class ListAssistant with EquatableMixin {
+class ListAssistant extends Equatable {
 
   ListAssistant(
       {required this.object,
@@ -43,7 +43,7 @@ class ListAssistant with EquatableMixin {
   List<Object?> get props => _$props;
 }
 
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListAssistantMetadata with EquatableMixin {
 
@@ -60,7 +60,7 @@ class ListAssistantMetadata with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListAssistantDataItem with EquatableMixin {
 

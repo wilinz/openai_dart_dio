@@ -3,22 +3,6 @@
 part of 'embeddings_response.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$EmbeddingsResponseAutoequal on EmbeddingsResponse {
-  List<Object?> get _$props => [object, data, model, usage];
-}
-
-extension _$EmbeddingsDataItemAutoequal on EmbeddingsDataItem {
-  List<Object?> get _$props => [object, embedding, index];
-}
-
-extension _$EmbeddingsUsageAutoequal on EmbeddingsUsage {
-  List<Object?> get _$props => [promptTokens, totalTokens];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -238,6 +222,22 @@ extension $EmbeddingsUsageCopyWith on EmbeddingsUsage {
   /// Returns a callable class that can be used as follows: `instanceOfEmbeddingsUsage.copyWith(...)` or like so:`instanceOfEmbeddingsUsage.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$EmbeddingsUsageCWProxy get copyWith => _$EmbeddingsUsageCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$EmbeddingsResponseEquatableAnnotations on EmbeddingsResponse {
+  List<Object?> get _$props => [object, data, model, usage];
+}
+
+extension _$EmbeddingsDataItemEquatableAnnotations on EmbeddingsDataItem {
+  List<Object?> get _$props => [object, embedding, index];
+}
+
+extension _$EmbeddingsUsageEquatableAnnotations on EmbeddingsUsage {
+  List<Object?> get _$props => [promptTokens, totalTokens];
 }
 
 // **************************************************************************

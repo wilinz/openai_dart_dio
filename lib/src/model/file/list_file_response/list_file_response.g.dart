@@ -3,25 +3,6 @@
 part of 'list_file_response.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ListFileResponseAutoequal on ListFileResponse {
-  List<Object?> get _$props => [data, object];
-}
-
-extension _$ListFileDataItemAutoequal on ListFileDataItem {
-  List<Object?> get _$props => [
-        id,
-        object,
-        bytes,
-        createdAt,
-        filename,
-        purpose,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -187,6 +168,25 @@ extension $ListFileDataItemCopyWith on ListFileDataItem {
   /// Returns a callable class that can be used as follows: `instanceOfListFileDataItem.copyWith(...)` or like so:`instanceOfListFileDataItem.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$ListFileDataItemCWProxy get copyWith => _$ListFileDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ListFileResponseEquatableAnnotations on ListFileResponse {
+  List<Object?> get _$props => [data, object];
+}
+
+extension _$ListFileDataItemEquatableAnnotations on ListFileDataItem {
+  List<Object?> get _$props => [
+        id,
+        object,
+        bytes,
+        createdAt,
+        filename,
+        purpose,
+      ];
 }
 
 // **************************************************************************

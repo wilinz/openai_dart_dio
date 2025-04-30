@@ -3,41 +3,6 @@
 part of 'list_message.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ListMessageAutoequal on ListMessage {
-  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
-}
-
-extension _$ListMessageTextAutoequal on ListMessageText {
-  List<Object?> get _$props => [value, annotations];
-}
-
-extension _$ListMessageContentItemAutoequal on ListMessageContentItem {
-  List<Object?> get _$props => [type, text];
-}
-
-extension _$ListMessageMetadataAutoequal on ListMessageMetadata {
-  List<Object?> get _$props => [];
-}
-
-extension _$ListMessageDataItemAutoequal on ListMessageDataItem {
-  List<Object?> get _$props => [
-        id,
-        object,
-        createdAt,
-        threadId,
-        role,
-        content,
-        fileIds,
-        assistantId,
-        runId,
-        metadata,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -407,6 +372,42 @@ extension $ListMessageDataItemCopyWith on ListMessageDataItem {
   // ignore: library_private_types_in_public_api
   _$ListMessageDataItemCWProxy get copyWith =>
       _$ListMessageDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ListMessageEquatableAnnotations on ListMessage {
+  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
+}
+
+extension _$ListMessageTextEquatableAnnotations on ListMessageText {
+  List<Object?> get _$props => [value, annotations];
+}
+
+extension _$ListMessageContentItemEquatableAnnotations
+    on ListMessageContentItem {
+  List<Object?> get _$props => [type, text];
+}
+
+extension _$ListMessageMetadataEquatableAnnotations on ListMessageMetadata {
+  List<Object?> get _$props => [];
+}
+
+extension _$ListMessageDataItemEquatableAnnotations on ListMessageDataItem {
+  List<Object?> get _$props => [
+        id,
+        object,
+        createdAt,
+        threadId,
+        role,
+        content,
+        fileIds,
+        assistantId,
+        runId,
+        metadata,
+      ];
 }
 
 // **************************************************************************

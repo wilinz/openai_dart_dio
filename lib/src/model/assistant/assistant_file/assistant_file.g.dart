@@ -3,14 +3,6 @@
 part of 'assistant_file.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$AssistantFileAutoequal on AssistantFile {
-  List<Object?> get _$props => [id, object, createdAt, assistantId];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -95,6 +87,14 @@ extension $AssistantFileCopyWith on AssistantFile {
   /// Returns a callable class that can be used as follows: `instanceOfAssistantFile.copyWith(...)` or like so:`instanceOfAssistantFile.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$AssistantFileCWProxy get copyWith => _$AssistantFileCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$AssistantFileEquatableAnnotations on AssistantFile {
+  List<Object?> get _$props => [id, object, createdAt, assistantId];
 }
 
 // **************************************************************************

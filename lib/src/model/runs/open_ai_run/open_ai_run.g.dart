@@ -3,36 +3,6 @@
 part of 'open_ai_run.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiRunAutoequal on OpenAiRun {
-  List<Object?> get _$props => [
-        id,
-        object,
-        createdAt,
-        assistantId,
-        threadId,
-        status,
-        startedAt,
-        expiresAt,
-        cancelledAt,
-        failedAt,
-        completedAt,
-        lastError,
-        model,
-        instructions,
-        tools,
-        fileIds,
-        metadata,
-      ];
-}
-
-extension _$OpenAiRunToolsItemAutoequal on OpenAiRunToolsItem {
-  List<Object?> get _$props => [type];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -310,6 +280,36 @@ extension $OpenAiRunToolsItemCopyWith on OpenAiRunToolsItem {
   // ignore: library_private_types_in_public_api
   _$OpenAiRunToolsItemCWProxy get copyWith =>
       _$OpenAiRunToolsItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiRunEquatableAnnotations on OpenAiRun {
+  List<Object?> get _$props => [
+        id,
+        object,
+        createdAt,
+        assistantId,
+        threadId,
+        status,
+        startedAt,
+        expiresAt,
+        cancelledAt,
+        failedAt,
+        completedAt,
+        lastError,
+        model,
+        instructions,
+        tools,
+        fileIds,
+        metadata,
+      ];
+}
+
+extension _$OpenAiRunToolsItemEquatableAnnotations on OpenAiRunToolsItem {
+  List<Object?> get _$props => [type];
 }
 
 // **************************************************************************

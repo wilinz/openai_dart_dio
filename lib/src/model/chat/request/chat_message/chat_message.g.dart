@@ -3,26 +3,6 @@
 part of 'chat_message.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ToolCallsAutoequal on ToolCalls {
-  List<Object?> get _$props => [id, type, function];
-}
-
-extension _$ChatMessageAutoequal on ChatMessage {
-  List<Object?> get _$props => [role, content, name, toolCalls, toolCallId];
-}
-
-extension _$MessageContentAutoequal on MessageContent {
-  List<Object?> get _$props => [type, text, imageUrl];
-}
-
-extension _$OpenAiImageInfoAutoequal on OpenAiImageInfo {
-  List<Object?> get _$props => [url];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -310,6 +290,26 @@ extension $OpenAiImageInfoCopyWith on OpenAiImageInfo {
   /// Returns a callable class that can be used as follows: `instanceOfOpenAiImageInfo.copyWith(...)` or like so:`instanceOfOpenAiImageInfo.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$OpenAiImageInfoCWProxy get copyWith => _$OpenAiImageInfoCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ToolCallsEquatableAnnotations on ToolCalls {
+  List<Object?> get _$props => [id, type, function];
+}
+
+extension _$ChatMessageEquatableAnnotations on ChatMessage {
+  List<Object?> get _$props => [role, content, name, toolCalls, toolCallId];
+}
+
+extension _$MessageContentEquatableAnnotations on MessageContent {
+  List<Object?> get _$props => [type, text, imageUrl];
+}
+
+extension _$OpenAiImageInfoEquatableAnnotations on OpenAiImageInfo {
+  List<Object?> get _$props => [url];
 }
 
 // **************************************************************************

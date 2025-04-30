@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 
 part 'list_message.g.dart';
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListMessage with EquatableMixin {
 
@@ -44,7 +44,7 @@ class ListMessage with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListMessageText with EquatableMixin {
 
@@ -70,7 +70,7 @@ class ListMessageText with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListMessageContentItem with EquatableMixin {
 
@@ -95,7 +95,7 @@ class ListMessageContentItem with EquatableMixin {
   List<Object?> get props => _$props;
 }
 
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListMessageMetadata with EquatableMixin {
 
@@ -112,7 +112,7 @@ class ListMessageMetadata with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ListMessageDataItem with EquatableMixin {
 

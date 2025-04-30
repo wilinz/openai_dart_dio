@@ -1,4 +1,4 @@
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -14,7 +14,7 @@ class ResponseFormatType {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class FunctionDefinition with EquatableMixin {
   @JsonKey(name: 'description', includeIfNull: false)
@@ -39,7 +39,7 @@ class FunctionDefinition with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class Tool with EquatableMixin {
 
@@ -60,7 +60,7 @@ class Tool with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ToolChoiceFunction with EquatableMixin {
   @JsonKey(name: 'name', includeIfNull: false)
@@ -78,7 +78,7 @@ class ToolChoiceFunction with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ToolChoice with EquatableMixin {
   @JsonKey(name: 'type', includeIfNull: false)
@@ -99,7 +99,7 @@ class ToolChoice with EquatableMixin {
 }
 
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ResponseFormat with EquatableMixin {
   /// Must be one of text or json_object.
@@ -119,7 +119,7 @@ class ResponseFormat with EquatableMixin {
 
 /// Represents a request for generating a model response for a chat conversation using the OpenAI API.
 @CopyWith()
-@autoequal
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ChatCompletionRequest with EquatableMixin {
   /// A list of messages comprising the conversation so far.

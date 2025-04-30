@@ -3,27 +3,6 @@
 part of 'list_fine_tuning_event.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ListFineTuningEventAutoequal on ListFineTuningEvent {
-  List<Object?> get _$props => [object, data, hasMore];
-}
-
-extension _$ListFineTuningEventDataItemAutoequal
-    on ListFineTuningEventDataItem {
-  List<Object?> get _$props => [
-        object,
-        id,
-        createdAt,
-        level,
-        message,
-        data,
-        type,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -216,6 +195,27 @@ extension $ListFineTuningEventDataItemCopyWith on ListFineTuningEventDataItem {
   // ignore: library_private_types_in_public_api
   _$ListFineTuningEventDataItemCWProxy get copyWith =>
       _$ListFineTuningEventDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ListFineTuningEventEquatableAnnotations on ListFineTuningEvent {
+  List<Object?> get _$props => [object, data, hasMore];
+}
+
+extension _$ListFineTuningEventDataItemEquatableAnnotations
+    on ListFineTuningEventDataItem {
+  List<Object?> get _$props => [
+        object,
+        id,
+        createdAt,
+        level,
+        message,
+        data,
+        type,
+      ];
 }
 
 // **************************************************************************

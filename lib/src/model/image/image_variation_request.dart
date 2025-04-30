@@ -1,4 +1,4 @@
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
@@ -7,7 +7,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'image_variation_request.g.dart';
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class ImageVariationRequest with EquatableMixin {
   @JsonKey(

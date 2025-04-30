@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 
 part 'submit_tool_outputs.g.dart';
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class SubmitToolOutputs with EquatableMixin {
 
@@ -92,7 +92,7 @@ class SubmitToolOutputs with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class SubmitToolOutputsLocation with EquatableMixin {
 
@@ -118,7 +118,7 @@ class SubmitToolOutputsLocation with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class SubmitToolOutputsUnit with EquatableMixin {
 
@@ -144,7 +144,7 @@ class SubmitToolOutputsUnit with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class SubmitToolOutputsProperties with EquatableMixin {
 
@@ -170,7 +170,7 @@ class SubmitToolOutputsProperties with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class SubmitToolOutputsParameters with EquatableMixin {
 
@@ -200,7 +200,7 @@ class SubmitToolOutputsParameters with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class SubmitToolOutputsFunction with EquatableMixin {
 
@@ -230,7 +230,7 @@ class SubmitToolOutputsFunction with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class SubmitToolOutputsToolsItem with EquatableMixin {
 
@@ -255,7 +255,7 @@ class SubmitToolOutputsToolsItem with EquatableMixin {
   List<Object?> get props => _$props;
 }
 
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class SubmitToolOutputsMetadata with EquatableMixin {
 

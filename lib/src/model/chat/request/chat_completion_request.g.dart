@@ -3,51 +3,6 @@
 part of 'chat_completion_request.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$FunctionDefinitionAutoequal on FunctionDefinition {
-  List<Object?> get _$props => [description, name, parameters];
-}
-
-extension _$ToolAutoequal on Tool {
-  List<Object?> get _$props => [type, function];
-}
-
-extension _$ToolChoiceFunctionAutoequal on ToolChoiceFunction {
-  List<Object?> get _$props => [name];
-}
-
-extension _$ToolChoiceAutoequal on ToolChoice {
-  List<Object?> get _$props => [type, function];
-}
-
-extension _$ResponseFormatAutoequal on ResponseFormat {
-  List<Object?> get _$props => [type];
-}
-
-extension _$ChatCompletionRequestAutoequal on ChatCompletionRequest {
-  List<Object?> get _$props => [
-        messages,
-        model,
-        frequencyPenalty,
-        logitBias,
-        maxTokens,
-        n,
-        presencePenalty,
-        responseFormat,
-        seed,
-        stop,
-        stream,
-        temperature,
-        topP,
-        tools,
-        toolChoice,
-        user,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -565,6 +520,51 @@ extension $ChatCompletionRequestCopyWith on ChatCompletionRequest {
   // ignore: library_private_types_in_public_api
   _$ChatCompletionRequestCWProxy get copyWith =>
       _$ChatCompletionRequestCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$FunctionDefinitionEquatableAnnotations on FunctionDefinition {
+  List<Object?> get _$props => [description, name, parameters];
+}
+
+extension _$ToolEquatableAnnotations on Tool {
+  List<Object?> get _$props => [type, function];
+}
+
+extension _$ToolChoiceFunctionEquatableAnnotations on ToolChoiceFunction {
+  List<Object?> get _$props => [name];
+}
+
+extension _$ToolChoiceEquatableAnnotations on ToolChoice {
+  List<Object?> get _$props => [type, function];
+}
+
+extension _$ResponseFormatEquatableAnnotations on ResponseFormat {
+  List<Object?> get _$props => [type];
+}
+
+extension _$ChatCompletionRequestEquatableAnnotations on ChatCompletionRequest {
+  List<Object?> get _$props => [
+        messages,
+        model,
+        frequencyPenalty,
+        logitBias,
+        maxTokens,
+        n,
+        presencePenalty,
+        responseFormat,
+        seed,
+        stop,
+        stream,
+        temperature,
+        topP,
+        tools,
+        toolChoice,
+        user,
+      ];
 }
 
 // **************************************************************************

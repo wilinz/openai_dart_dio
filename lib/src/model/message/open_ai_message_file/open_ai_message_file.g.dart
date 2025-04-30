@@ -3,14 +3,6 @@
 part of 'open_ai_message_file.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$OpenAiMessageFileAutoequal on OpenAiMessageFile {
-  List<Object?> get _$props => [id, object, createdAt, messageId, fileId];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -106,6 +98,14 @@ extension $OpenAiMessageFileCopyWith on OpenAiMessageFile {
   // ignore: library_private_types_in_public_api
   _$OpenAiMessageFileCWProxy get copyWith =>
       _$OpenAiMessageFileCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$OpenAiMessageFileEquatableAnnotations on OpenAiMessageFile {
+  List<Object?> get _$props => [id, object, createdAt, messageId, fileId];
 }
 
 // **************************************************************************

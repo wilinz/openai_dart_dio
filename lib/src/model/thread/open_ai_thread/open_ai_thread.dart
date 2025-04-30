@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 
 part 'open_ai_thread.g.dart';
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class OpenAiThread with EquatableMixin {
 
@@ -40,7 +40,7 @@ class OpenAiThread with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class OpenAiThreadMetadata with EquatableMixin {
 

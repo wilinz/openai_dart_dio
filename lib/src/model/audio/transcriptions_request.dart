@@ -1,4 +1,4 @@
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
@@ -8,7 +8,7 @@ part 'transcriptions_request.g.dart';
 
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: false)
 class SpeechRecognitionRequest with EquatableMixin {
   @JsonKey(includeFromJson: false, includeToJson: false, includeIfNull: false)

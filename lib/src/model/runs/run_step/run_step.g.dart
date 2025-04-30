@@ -3,37 +3,6 @@
 part of 'run_step.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$RunStepAutoequal on RunStep {
-  List<Object?> get _$props => [
-        id,
-        object,
-        createdAt,
-        runId,
-        assistantId,
-        threadId,
-        type,
-        status,
-        cancelledAt,
-        completedAt,
-        expiredAt,
-        failedAt,
-        lastError,
-        stepDetails,
-      ];
-}
-
-extension _$RunStepMessageCreationAutoequal on RunStepMessageCreation {
-  List<Object?> get _$props => [messageId];
-}
-
-extension _$RunStepStepDetailsAutoequal on RunStepStepDetails {
-  List<Object?> get _$props => [type, messageCreation];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -342,6 +311,38 @@ extension $RunStepStepDetailsCopyWith on RunStepStepDetails {
   // ignore: library_private_types_in_public_api
   _$RunStepStepDetailsCWProxy get copyWith =>
       _$RunStepStepDetailsCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$RunStepEquatableAnnotations on RunStep {
+  List<Object?> get _$props => [
+        id,
+        object,
+        createdAt,
+        runId,
+        assistantId,
+        threadId,
+        type,
+        status,
+        cancelledAt,
+        completedAt,
+        expiredAt,
+        failedAt,
+        lastError,
+        stepDetails,
+      ];
+}
+
+extension _$RunStepMessageCreationEquatableAnnotations
+    on RunStepMessageCreation {
+  List<Object?> get _$props => [messageId];
+}
+
+extension _$RunStepStepDetailsEquatableAnnotations on RunStepStepDetails {
+  List<Object?> get _$props => [type, messageCreation];
 }
 
 // **************************************************************************

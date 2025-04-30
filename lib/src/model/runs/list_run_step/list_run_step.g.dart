@@ -3,41 +3,6 @@
 part of 'list_run_step.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ListRunStepAutoequal on ListRunStep {
-  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
-}
-
-extension _$ListRunStepMessageCreationAutoequal on ListRunStepMessageCreation {
-  List<Object?> get _$props => [messageId];
-}
-
-extension _$ListRunStepStepDetailsAutoequal on ListRunStepStepDetails {
-  List<Object?> get _$props => [type, messageCreation];
-}
-
-extension _$ListRunStepDataItemAutoequal on ListRunStepDataItem {
-  List<Object?> get _$props => [
-        id,
-        object,
-        createdAt,
-        runId,
-        assistantId,
-        threadId,
-        type,
-        status,
-        cancelledAt,
-        completedAt,
-        expiredAt,
-        failedAt,
-        lastError,
-        stepDetails,
-      ];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -448,6 +413,43 @@ extension $ListRunStepDataItemCopyWith on ListRunStepDataItem {
   // ignore: library_private_types_in_public_api
   _$ListRunStepDataItemCWProxy get copyWith =>
       _$ListRunStepDataItemCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ListRunStepEquatableAnnotations on ListRunStep {
+  List<Object?> get _$props => [object, data, firstId, lastId, hasMore];
+}
+
+extension _$ListRunStepMessageCreationEquatableAnnotations
+    on ListRunStepMessageCreation {
+  List<Object?> get _$props => [messageId];
+}
+
+extension _$ListRunStepStepDetailsEquatableAnnotations
+    on ListRunStepStepDetails {
+  List<Object?> get _$props => [type, messageCreation];
+}
+
+extension _$ListRunStepDataItemEquatableAnnotations on ListRunStepDataItem {
+  List<Object?> get _$props => [
+        id,
+        object,
+        createdAt,
+        runId,
+        assistantId,
+        threadId,
+        type,
+        status,
+        cancelledAt,
+        completedAt,
+        expiredAt,
+        failedAt,
+        lastError,
+        stepDetails,
+      ];
 }
 
 // **************************************************************************

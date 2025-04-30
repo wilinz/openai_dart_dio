@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 
 part 'embeddings_response.g.dart';
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class EmbeddingsResponse with EquatableMixin {
 
@@ -40,7 +40,7 @@ class EmbeddingsResponse with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class EmbeddingsDataItem with EquatableMixin {
 
@@ -70,7 +70,7 @@ class EmbeddingsDataItem with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class EmbeddingsUsage with EquatableMixin {
 

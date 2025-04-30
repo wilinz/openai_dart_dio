@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:autoequal/autoequal.dart';
+import 'package:equatable_annotations/equatable_annotations.dart';
 
 part 'open_ai_assistant.g.dart';
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class OpenAiAssistant with EquatableMixin {
 
@@ -64,7 +64,7 @@ class OpenAiAssistant with EquatableMixin {
 }
 
 @CopyWith()
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class OpenAiAssistantToolsItem with EquatableMixin {
 
@@ -85,7 +85,7 @@ class OpenAiAssistantToolsItem with EquatableMixin {
   List<Object?> get props => _$props;
 }
 
-@Autoequal()
+@generateProps
 @JsonSerializable(explicitToJson: true)
 class OpenAiAssistantMetadata with EquatableMixin {
 

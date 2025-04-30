@@ -3,38 +3,6 @@
 part of 'chat_completion.dart';
 
 // **************************************************************************
-// AutoequalGenerator
-// **************************************************************************
-
-extension _$ChatCompletionAutoequal on ChatCompletion {
-  List<Object?> get _$props => [
-        id,
-        choices,
-        created,
-        model,
-        systemFingerprint,
-        object,
-        usage,
-      ];
-}
-
-extension _$ChatCompletionChoiceAutoequal on ChatCompletionChoice {
-  List<Object?> get _$props => [finishReason, index, message];
-}
-
-extension _$ChatCompletionMessageAutoequal on ChatCompletionMessage {
-  List<Object?> get _$props => [content, toolCalls, role];
-}
-
-extension _$ToolCallAutoequal on ToolCall {
-  List<Object?> get _$props => [id, type, function];
-}
-
-extension _$UsageAutoequal on Usage {
-  List<Object?> get _$props => [completionTokens, promptTokens, totalTokens];
-}
-
-// **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
@@ -445,6 +413,38 @@ extension $UsageCopyWith on Usage {
   /// Returns a callable class that can be used as follows: `instanceOfUsage.copyWith(...)` or like so:`instanceOfUsage.copyWith.fieldName(...)`.
   // ignore: library_private_types_in_public_api
   _$UsageCWProxy get copyWith => _$UsageCWProxyImpl(this);
+}
+
+// **************************************************************************
+// EquatableGenerator
+// **************************************************************************
+
+extension _$ChatCompletionEquatableAnnotations on ChatCompletion {
+  List<Object?> get _$props => [
+        id,
+        choices,
+        created,
+        model,
+        systemFingerprint,
+        object,
+        usage,
+      ];
+}
+
+extension _$ChatCompletionChoiceEquatableAnnotations on ChatCompletionChoice {
+  List<Object?> get _$props => [finishReason, index, message];
+}
+
+extension _$ChatCompletionMessageEquatableAnnotations on ChatCompletionMessage {
+  List<Object?> get _$props => [content, toolCalls, role];
+}
+
+extension _$ToolCallEquatableAnnotations on ToolCall {
+  List<Object?> get _$props => [id, type, function];
+}
+
+extension _$UsageEquatableAnnotations on Usage {
+  List<Object?> get _$props => [completionTokens, promptTokens, totalTokens];
 }
 
 // **************************************************************************
