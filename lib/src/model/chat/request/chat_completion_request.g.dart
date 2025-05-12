@@ -253,6 +253,8 @@ extension $ToolChoiceCopyWith on ToolChoice {
 abstract class _$ResponseFormatCWProxy {
   ResponseFormat type(String type);
 
+  ResponseFormat jsonSchema(Map<String, dynamic>? jsonSchema);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ResponseFormat(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -261,6 +263,7 @@ abstract class _$ResponseFormatCWProxy {
   /// ````
   ResponseFormat call({
     String type,
+    Map<String, dynamic>? jsonSchema,
   });
 }
 
@@ -274,6 +277,10 @@ class _$ResponseFormatCWProxyImpl implements _$ResponseFormatCWProxy {
   ResponseFormat type(String type) => this(type: type);
 
   @override
+  ResponseFormat jsonSchema(Map<String, dynamic>? jsonSchema) =>
+      this(jsonSchema: jsonSchema);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ResponseFormat(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -283,12 +290,17 @@ class _$ResponseFormatCWProxyImpl implements _$ResponseFormatCWProxy {
   /// ````
   ResponseFormat call({
     Object? type = const $CopyWithPlaceholder(),
+    Object? jsonSchema = const $CopyWithPlaceholder(),
   }) {
     return ResponseFormat(
       type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String,
+      jsonSchema: jsonSchema == const $CopyWithPlaceholder()
+          ? _value.jsonSchema
+          // ignore: cast_nullable_to_non_nullable
+          : jsonSchema as Map<String, dynamic>?,
     );
   }
 }
@@ -543,7 +555,7 @@ extension _$ToolChoiceEquatableAnnotations on ToolChoice {
 }
 
 extension _$ResponseFormatEquatableAnnotations on ResponseFormat {
-  List<Object?> get _$props => [type];
+  List<Object?> get _$props => [type, jsonSchema];
 }
 
 extension _$ChatCompletionRequestEquatableAnnotations on ChatCompletionRequest {
@@ -623,11 +635,13 @@ Map<String, dynamic> _$ToolChoiceToJson(ToolChoice instance) =>
 ResponseFormat _$ResponseFormatFromJson(Map<String, dynamic> json) =>
     ResponseFormat(
       type: json['type'] as String,
+      jsonSchema: json['json_schema'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$ResponseFormatToJson(ResponseFormat instance) =>
     <String, dynamic>{
       'type': instance.type,
+      if (instance.jsonSchema case final value?) 'json_schema': value,
     };
 
 ChatCompletionRequest _$ChatCompletionRequestFromJson(

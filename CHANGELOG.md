@@ -1,4 +1,7 @@
-## 2.0.2
+## 2.1.0
+- Update ChatCompletionRequest ResponseFormat, add jsonSchema field
+
+- ## 2.0.2
 - Update readme.md
 
 ## 2.0.1

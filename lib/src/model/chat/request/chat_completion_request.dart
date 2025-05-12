@@ -11,6 +11,7 @@ class ResponseFormatType {
 
   static const String text = "text";
   static const String jsonObject = "json_object";
+  static const String jsonSchema = "json_schema";
 }
 
 @CopyWith()
@@ -106,7 +107,10 @@ class ResponseFormat with EquatableMixin {
   @JsonKey(name: "type", includeIfNull: false)
   final String type;
 
-  ResponseFormat({required this.type});
+  @JsonKey(name: "json_schema", includeIfNull: false)
+  final Map<String, dynamic>? jsonSchema;
+
+  ResponseFormat({required this.type, this.jsonSchema});
 
   factory ResponseFormat.fromJson(Map<String, dynamic> json) =>
       _$ResponseFormatFromJson(json);
